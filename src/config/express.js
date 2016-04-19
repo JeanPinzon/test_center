@@ -15,10 +15,8 @@
 
     var app = express();
 
-
     app.set('views', appFolder + '/views');
     app.set('view engine', 'ejs');
-    app.set('port', 3000);
 
     app.use(express.static(publicFolder));
     app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,8 +24,7 @@
     app.use(methodOverride());
     app.use(helmet());
 
-    load('models', { cwd: 'app' })
-      .then('controllers')
+    load('teste', { cwd: 'app' })
       .then('routes')
       .into(app);
 
