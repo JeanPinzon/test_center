@@ -1,0 +1,21 @@
+{
+  "name": "valuations_manager",
+  "homepage": "https://github.com/JeanPinzon/valuations_manager",
+  "authors": [
+    "Jean Pinzon <jeanpinzon@icloud.com>"
+  ],
+  "description": "Sistema para gerenciamento de avaliações para recrutamento de pessoas",
+  "main": "app.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

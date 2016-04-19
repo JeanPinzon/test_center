@@ -1,0 +1,27 @@
+{
+  "name": "valuations_manager",
+  "version": "0.0.0",
+  "description": "Sistema para gerenciamento de avaliações para recrutamento de pessoas",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeanPinzon/valuations_manager.git"
+  },
+  "authors": [
+    "Jean Pinzon <jeanpinzon@icloud.com>",
+    "Rafael Benetti <rafaeldeoliveirabenetti@gmail.com>"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeanPinzon/valuations_manager/issues"
+  },
+  "homepage": "https://github.com/JeanPinzon/valuations_manager#readme",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "4.13.4"
+  },
+  "devDependencies": {
+  }
+}
