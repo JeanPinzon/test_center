@@ -5,7 +5,7 @@
 
     var controller = {};
 
-    controller.saveValuation = function (req, res) {
+    controller.saveTest = function (req, res) {
       console.log(req.body);
       res.json({ ok: true });
     };

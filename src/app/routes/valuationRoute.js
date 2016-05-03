@@ -3,9 +3,9 @@
 
   module.exports = function (app) {
 
-    var valuationController = app.valuation.valuationController;
+    var testController = app.test.testController;
 
     app.route('/avaliacao')
-       .post(valuationController.saveValuation);
+       .post(testController.saveTest);
   };
 })();

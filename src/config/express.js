@@ -24,7 +24,7 @@
     app.use(methodOverride());
     app.use(helmet());
 
-    load('valuation', { cwd: 'app' })
+    load('test', { cwd: 'app' })
       .then('routes')
       .into(app);
 

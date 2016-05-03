@@ -1,12 +1,12 @@
 {
-  "name": "valuations_manager",
+  "name": "test_center",
   "version": "0.0.0",
   "description": "Sistema para gerenciamento de avaliações para recrutamento de pessoas",
   "main": "index.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JeanPinzon/valuations_manager.git"
+    "url": "git+https://github.com/JeanPinzon/test_center.git"
   },
   "authors": [
     "Jean Pinzon <jeanpinzon@icloud.com>",
@@ -14,9 +14,9 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JeanPinzon/valuations_manager/issues"
+    "url": "https://github.com/JeanPinzon/test_center/issues"
   },
-  "homepage": "https://github.com/JeanPinzon/valuations_manager#readme",
+  "homepage": "https://github.com/JeanPinzon/test_center#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
     "ejs": "^2.4.1",
