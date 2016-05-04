@@ -30,7 +30,7 @@
           <div class="container">
             <div class="form-group">
               <label>Nome:</label>
-              <input type="text" class="form-control" placeholder="Nome">
+              <input ng-model="homeCtrl.test.name" type="text" class="form-control" placeholder="Nome">
             </div>
           </div>
         </div>
@@ -39,13 +39,9 @@
           <div class="container">
             <div class="form-group col-sm-6">
               <label>Orientação a objetos:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>1 - Não atende ao requisito</option>
-                <option>2 - Abaixo da média</option>
-                <option>3 - Normal</option>
-                <option>4 - Acima do desejado</option>
-                <option>5 - Excelente</option>
+              <select ng-model="homeCtrl.test.quality.oo"
+                      class="form-control"
+                      ng-options="option.value as option.text for option in homeCtrl.defaultOptions">
               </select>
             </div>
 
@@ -56,13 +52,9 @@
 
             <div class="form-group col-sm-6">
               <label>Inteligência:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>1 - Não atende ao requisito</option>
-                <option>2 - Abaixo da média</option>
-                <option>3 - Normal</option>
-                <option>4 - Acima do desejado</option>
-                <option>5 - Excelente</option>
+              <select ng-model="homeCtrl.test.quality.intelligence"
+                      class="form-control"
+                      ng-options="option.value as option.text for option in homeCtrl.defaultOptions">
               </select>
             </div>
 
@@ -73,13 +65,9 @@
 
             <div class="form-group col-sm-6">
               <label>Tratamento de Exceções:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>1 - Não atende ao requisito</option>
-                <option>2 - Abaixo da média</option>
-                <option>3 - Normal</option>
-                <option>4 - Acima do desejado</option>
-                <option>5 - Excelente</option>
+              <select ng-model="homeCtrl.test.quality.exceptionHandling"
+                      class="form-control"
+                      ng-options="option.value as option.text for option in homeCtrl.defaultOptions">
               </select>
             </div>
 
@@ -90,13 +78,9 @@
 
             <div class="form-group col-sm-6">
               <label>Repetição de código:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>1 - Não atende ao requisito</option>
-                <option>2 - Abaixo da média</option>
-                <option>3 - Normal</option>
-                <option>4 - Acima do desejado</option>
-                <option>5 - Excelente</option>
+              <select ng-model="homeCtrl.test.quality.duplicatedCode"
+                      class="form-control"
+                      ng-options="option.value as option.text for option in homeCtrl.defaultOptions">
               </select>
             </div>
 
@@ -107,12 +91,9 @@
 
             <div class="form-group col-sm-6">
               <label>Testes automatizados:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>0 - Péssimo</option>
-                <option>20 - Ruim</option>
-                <option>50 - OK</option>
-                <option>70 - Excelente</option>
+              <select ng-model="homeCtrl.test.quality.automatedTests"
+                      class="form-control"
+                      ng-options="option.value as option.text for option in homeCtrl.automatedTestsOptions">
               </select>
             </div>
 
@@ -127,13 +108,9 @@
           <div class="container">
             <div class="form-group col-sm-6">
               <label>Alterar formato de entrada:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>1 - Não atende ao requisito</option>
-                <option>2 - Abaixo da média</option>
-                <option>3 - Normal</option>
-                <option>4 - Acima do desejado</option>
-                <option>5 - Excelente</option>
+              <select ng-model="homeCtrl.test.maintainability.inputFormat"
+                      class="form-control"
+                      ng-options="option.value as option.text for option in homeCtrl.defaultOptions">
               </select>
             </div>
 
@@ -144,13 +121,9 @@
 
             <div class="form-group col-sm-6">
               <label>Adicionar operações:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>1 - Não atende ao requisito</option>
-                <option>2 - Abaixo da média</option>
-                <option>3 - Normal</option>
-                <option>4 - Acima do desejado</option>
-                <option>5 - Excelente</option>
+              <select ng-model="homeCtrl.test.quality.oo"
+                      class="form-control"
+                      ng-options="option.value as option.text for option in homeCtrl.defaultOptions">
               </select>
             </div>
 
@@ -161,13 +134,9 @@
 
             <div class="form-group col-sm-6">
               <label>Alterar o formato de saída:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>1 - Não atende ao requisito</option>
-                <option>2 - Abaixo da média</option>
-                <option>3 - Normal</option>
-                <option>4 - Acima do desejado</option>
-                <option>5 - Excelente</option>
+              <select ng-model="homeCtrl.test.quality.oo"
+                      class="form-control"
+                      ng-options="option.value as option.text for option in homeCtrl.defaultOptions">
               </select>
             </div>
 
@@ -178,14 +147,10 @@
 
             <div class="form-group col-sm-6">
               <label>Ano bissexto:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>1 - Não atende ao requisito</option>
-                <option>2 - Abaixo da média</option>
-                <option>3 - Normal</option>
-                <option>4 - Acima do desejado</option>
-                <option>5 - Excelente</option>
-              </select>
+                <select ng-model="homeCtrl.test.quality.oo"
+                        class="form-control"
+                        ng-options="option.value as option.text for option in homeCtrl.defaultOptions">
+                </select>
             </div>
 
             <div class="form-group col-sm-6">
@@ -214,13 +179,9 @@
           <div class="container">
             <div class="form-group col-sm-6">
               <label>Variaveis:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>1 - Não atende ao requisito</option>
-                <option>2 - Abaixo da média</option>
-                <option>3 - Normal</option>
-                <option>4 - Acima do desejado</option>
-                <option>5 - Excelente</option>
+              <select ng-model="homeCtrl.test.quality.oo"
+                      class="form-control"
+                      ng-options="option.value as option.text for option in homeCtrl.defaultOptions">
               </select>
             </div>
 
@@ -231,13 +192,9 @@
 
             <div class="form-group col-sm-6">
               <label>Métodos:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>1 - Não atende ao requisito</option>
-                <option>2 - Abaixo da média</option>
-                <option>3 - Normal</option>
-                <option>4 - Acima do desejado</option>
-                <option>5 - Excelente</option>
+              <select ng-model="homeCtrl.test.quality.oo"
+                      class="form-control"
+                      ng-options="option.value as option.text for option in homeCtrl.defaultOptions">
               </select>
             </div>
 
@@ -248,13 +205,9 @@
 
             <div class="form-group col-sm-6">
               <label>Comentários:</label>
-              <select class="form-control">
-                <option>Selecione</option>
-                <option>1 - Não atende ao requisito</option>
-                <option>2 - Abaixo da média</option>
-                <option>3 - Normal</option>
-                <option>4 - Acima do desejado</option>
-                <option>5 - Excelente</option>
+              <select ng-model="homeCtrl.test.quality.oo"
+                      class="form-control"
+                      ng-options="option.value as option.text for option in homeCtrl.defaultOptions">
               </select>
             </div>
 
@@ -273,6 +226,7 @@
             <div class="form-group">
               <button type="button" class="btn btn-success">Finalizar Avaliação</button>
             </div>
+            <code ng-bind="homeCtrl.test | json"></code>
           </div>
         </div>
       </div>
