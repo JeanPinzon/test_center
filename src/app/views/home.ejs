@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="testCenter">
 <head>
   <title>CWI - Test</title>
   <link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/base.css">
 </head>
-<body>
+<body ng-controller="homeController as homeCtrl">
   <h3>Test Center</h3>
 
   <div class="container">
@@ -282,5 +282,10 @@
   </div>
   <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="vendor/angular/angular.min.js"></script>
+
+  <script type="text/javascript" src="app.js"></script>
+
+  <script type="text/javascript" src="home/homeController.js"></script>
 </body>
 </html>
