@@ -1,253 +1,286 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CWI - Test</title>
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/base.css">
+  <title>CWI - Test</title>
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/base.css">
 </head>
 <body>
-	<h3>CWI Test</h3>
+  <h3>Test Center</h3>
 
-	<div class="container">
-		<div class="row">
-			<form>
-				<div class="form-group">
-			    	<label>Nome do candidato:</label>
-			    	<input type="text" class="form-control" placeholder="Nome do candidato">
-			  	</div>
+  <div class="container">
 
-			  	<h4>Qualidade:</h4>
+    <div id="exTab2" class="container">
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a  href="#candidateTab" data-toggle="tab">Candidato</a>
+        </li>
+        <li><a href="#qualityTab" data-toggle="tab">Qualidade</a>
+        </li>
+        <li><a href="#maintainabilityTab" data-toggle="tab">Manutenção</a>
+        </li>
+        <li><a href="#readabilityTab" data-toggle="tab">Legibilidade</a>
+        </li>
+        <li><a href="#endTab" data-toggle="tab">Concluir</a>
+        </li>
+      </ul>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Orientação a objetos:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>1 - Não atende ao requisito</option>
-					  <option>2 - Abaixo da média</option>
-					  <option>3 - Normal</option>
-					  <option>4 - Acima do desejado</option>
-					  <option>5 - Excelente</option>
-					</select>					
-			  	</div>
+      <div class="tab-content ">
+        <div class="tab-pane active" id="candidateTab">
+          <div class="container">
+            <div class="form-group">
+              <label>Nome do candidato:</label>
+              <input type="text" class="form-control" placeholder="Nome do candidato">
+            </div>
+          </div>
+        </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+        <div class="tab-pane" id="qualityTab">
+          <div class="container">
+            <div class="form-group col-sm-6">
+              <label>Orientação a objetos:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>1 - Não atende ao requisito</option>
+                <option>2 - Abaixo da média</option>
+                <option>3 - Normal</option>
+                <option>4 - Acima do desejado</option>
+                <option>5 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Inteligência:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>1 - Não atende ao requisito</option>
-					  <option>2 - Abaixo da média</option>
-					  <option>3 - Normal</option>
-					  <option>4 - Acima do desejado</option>
-					  <option>5 - Excelente</option>
-					</select>					
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Inteligência:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>1 - Não atende ao requisito</option>
+                <option>2 - Abaixo da média</option>
+                <option>3 - Normal</option>
+                <option>4 - Acima do desejado</option>
+                <option>5 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Tratamento de Exceções:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>1 - Não atende ao requisito</option>
-					  <option>2 - Abaixo da média</option>
-					  <option>3 - Normal</option>
-					  <option>4 - Acima do desejado</option>
-					  <option>5 - Excelente</option>
-					</select>					
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Tratamento de Exceções:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>1 - Não atende ao requisito</option>
+                <option>2 - Abaixo da média</option>
+                <option>3 - Normal</option>
+                <option>4 - Acima do desejado</option>
+                <option>5 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Repetição de código:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>1 - Não atende ao requisito</option>
-					  <option>2 - Abaixo da média</option>
-					  <option>3 - Normal</option>
-					  <option>4 - Acima do desejado</option>
-					  <option>5 - Excelente</option>
-					</select>					
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Repetição de código:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>1 - Não atende ao requisito</option>
+                <option>2 - Abaixo da média</option>
+                <option>3 - Normal</option>
+                <option>4 - Acima do desejado</option>
+                <option>5 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Testes automatizados:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>0 - Péssimo</option>
-					  <option>20 - Ruim</option>
-					  <option>50 - OK</option>
-					  <option>70 - Excelente</option>
-					</select>					
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Testes automatizados:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>0 - Péssimo</option>
+                <option>20 - Ruim</option>
+                <option>50 - OK</option>
+                <option>70 - Excelente</option>
+              </select>
+            </div>
 
-			  	<h4>Manutenção:</h4>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
+          </div>
+        </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Alterar formato de entrada:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>1 - Não atende ao requisito</option>
-					  <option>2 - Abaixo da média</option>
-					  <option>3 - Normal</option>
-					  <option>4 - Acima do desejado</option>
-					  <option>5 - Excelente</option>
-					</select>					
-			  	</div>
+        <div class="tab-pane" id="maintainabilityTab">
+          <div class="container">
+            <div class="form-group col-sm-6">
+              <label>Alterar formato de entrada:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>1 - Não atende ao requisito</option>
+                <option>2 - Abaixo da média</option>
+                <option>3 - Normal</option>
+                <option>4 - Acima do desejado</option>
+                <option>5 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Adicionar operações:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>1 - Não atende ao requisito</option>
-					  <option>2 - Abaixo da média</option>
-					  <option>3 - Normal</option>
-					  <option>4 - Acima do desejado</option>
-					  <option>5 - Excelente</option>
-					</select>					
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Adicionar operações:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>1 - Não atende ao requisito</option>
+                <option>2 - Abaixo da média</option>
+                <option>3 - Normal</option>
+                <option>4 - Acima do desejado</option>
+                <option>5 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Alterar o formato de saída:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>1 - Não atende ao requisito</option>
-					  <option>2 - Abaixo da média</option>
-					  <option>3 - Normal</option>
-					  <option>4 - Acima do desejado</option>
-					  <option>5 - Excelente</option>
-					</select>					
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Alterar o formato de saída:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>1 - Não atende ao requisito</option>
+                <option>2 - Abaixo da média</option>
+                <option>3 - Normal</option>
+                <option>4 - Acima do desejado</option>
+                <option>5 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Ano bissexto:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>1 - Não atende ao requisito</option>
-					  <option>2 - Abaixo da média</option>
-					  <option>3 - Normal</option>
-					  <option>4 - Acima do desejado</option>
-					  <option>5 - Excelente</option>
-					</select>					
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Ano bissexto:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>1 - Não atende ao requisito</option>
+                <option>2 - Abaixo da média</option>
+                <option>3 - Normal</option>
+                <option>4 - Acima do desejado</option>
+                <option>5 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Manutenabilidade:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>0 - Péssimo</option>
-					  <option>20 - Ruim</option>
-					  <option>50 - OK</option>
-					  <option>70 - Excelente</option>
-					</select>					
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Manutenabilidade:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>0 - Péssimo</option>
+                <option>20 - Ruim</option>
+                <option>50 - OK</option>
+                <option>70 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="readabilityTab">
+          <div class="container">
+            <h4>Legibilidade:</h4>
 
-			  	<h4>Legibilidade:</h4>
+            <div class="form-group col-sm-6">
+              <label>Variaveis:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>1 - Não atende ao requisito</option>
+                <option>2 - Abaixo da média</option>
+                <option>3 - Normal</option>
+                <option>4 - Acima do desejado</option>
+                <option>5 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Variaveis:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>1 - Não atende ao requisito</option>
-					  <option>2 - Abaixo da média</option>
-					  <option>3 - Normal</option>
-					  <option>4 - Acima do desejado</option>
-					  <option>5 - Excelente</option>
-					</select>					
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Métodos:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>1 - Não atende ao requisito</option>
+                <option>2 - Abaixo da média</option>
+                <option>3 - Normal</option>
+                <option>4 - Acima do desejado</option>
+                <option>5 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Métodos:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>1 - Não atende ao requisito</option>
-					  <option>2 - Abaixo da média</option>
-					  <option>3 - Normal</option>
-					  <option>4 - Acima do desejado</option>
-					  <option>5 - Excelente</option>
-					</select>					
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
+            <div class="form-group col-sm-6">
+              <label>Comentários:</label>
+              <select class="form-control">
+                <option>Selecione</option>
+                <option>1 - Não atende ao requisito</option>
+                <option>2 - Abaixo da média</option>
+                <option>3 - Normal</option>
+                <option>4 - Acima do desejado</option>
+                <option>5 - Excelente</option>
+              </select>
+            </div>
 
-			  	<div class="form-group col-sm-6">
-			    	<label>Comentários:</label>
-			    	<select class="form-control">
-			    	  <option>Selecione</option>
-					  <option>1 - Não atende ao requisito</option>
-					  <option>2 - Abaixo da média</option>
-					  <option>3 - Normal</option>
-					  <option>4 - Acima do desejado</option>
-					  <option>5 - Excelente</option>
-					</select>					
-			  	</div>
-
-			  	<div class="form-group col-sm-6">
-			    	<label>Observação:</label>
-			    	<textarea class="form-control" rows="1"></textarea>
-			  	</div>
-
-			  	<div class="form-group">
-			  		<button type="button" class="btn btn-success">Enviar</button>	
-			  	</div>
-			</form>
-		</div>
-	</div>
-	<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>	
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea class="form-control" rows="1"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="endTab">
+          <div class="container">
+            <div class="form-group">
+              <label>E-mail para envio:</label>
+              <input type="text" class="form-control" placeholder="Email para envio">
+            </div>
+            <div class="form-group">
+              <button type="button" class="btn btn-success">Enviar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
