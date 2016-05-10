@@ -1,7 +1,6 @@
 (function () {
   'use strict';
 
-  var http = require('http');
   var express = require('express');
   var load = require('express-load');
   var bodyParser =  require('body-parser');
