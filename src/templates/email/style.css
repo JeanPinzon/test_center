@@ -1,0 +1,35 @@
+/* base */
+
+body {
+  font-family: "Times New Roman", Georgia, Serif;
+  box-sizing: border-box;
+  color: #212121;
+}
+
+header {
+  background-color: #B2EBF2;
+  padding: 10px;
+  height: 140px;
+}
+header .img-container {
+  float: right;
+}
+
+/* Blocos com detalhes */
+
+.green {
+  background-color: #A5D6A7;
+}
+
+.yellow {
+  background-color: #FFF59D;
+}
+
+.red {
+  background-color: #EF9A9A
+}
+
+.title h2 {
+  padding: 10px;
+  margin: 4px 0px 0px 0px;
+}
