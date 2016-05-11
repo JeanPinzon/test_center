@@ -5,7 +5,7 @@
 
     var testController = app.test.testController;
 
-    app.route('/avaliacao')
+    app.route('api/v1/avaliacao')
        .post(testController.saveTest);
   };
 })();

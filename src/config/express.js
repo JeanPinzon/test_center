@@ -23,7 +23,7 @@
     app.use(methodOverride());
     app.use(helmet());
 
-    load('test', { cwd: 'app' })
+    load('test', { cwd: './app' })
       .then('routes')
       .into(app);
 

@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var homeController = function () {
+  var homeController = function (testService) {
 
     var self = this;
 
@@ -40,9 +40,13 @@
       text: '70% - Excelente'
     }];
 
+    self.sendTest = function () {
+      testService.sendTest(self.test);
+    };
   };
 
   angular.module('testCenter').controller('homeController', [
+    'testService',
     homeController
   ]);
 

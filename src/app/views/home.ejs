@@ -229,7 +229,7 @@
               <input type="text" class="form-control" placeholder="Email para envio" ng-model="homeCtrl.test.emails">
             </div>
             <div class="form-group">
-              <button type="button" class="btn btn-success">Finalizar Avaliação</button>
+              <button type="button" class="btn btn-success" ng-click="homeCtrl.sendTest()">Finalizar Avaliação</button>
             </div>
               <pre ng-bind="homeCtrl.test | json"></pre>
           </div>
@@ -242,7 +242,12 @@
   <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="vendor/angular/angular.min.js"></script>
+
   <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="config/urlSettingsFactory.js"></script>
+
+  <script type="text/javascript" src="test/testService.js"></script>
+
   <script type="text/javascript" src="home/homeController.js"></script>
 </body>
 </html>

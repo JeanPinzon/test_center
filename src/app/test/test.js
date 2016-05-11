@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var Valuator = function () {
+  var Test = function () {
 
     var self = this;
 
