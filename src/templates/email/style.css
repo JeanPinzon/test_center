@@ -1,7 +1,7 @@
 /* base */
 
 body {
-  font-family: "Times New Roman", Georgia, Serif;
+  font-family: 'Raleway', sans-serif;
   box-sizing: border-box;
   color: #212121;
 }
@@ -14,24 +14,20 @@ header {
 header .img-container {
   float: right;
 }
+header h1{
+  font-size: 3em;
+  color: #34495E;
+}
+
+hr {
+    opacity: 0.2;
+}
 
 /* Blocos com detalhes */
-
-.green {
-  background-color: #A5D6A7;
-}
-
-.yellow {
-  background-color: #FFF59D;
-}
-
-.red {
-  background-color: #EF9A9A
-}
-
 .title h2 {
   padding: 10px;
   margin: 4px 0px 0px 0px;
+  font-size: 1.2em;
 }
 
 /* Itens */
@@ -42,7 +38,7 @@ header .img-container {
   padding-right: 5px;
   float: left;
 }
-.item label {
+.item .item-name {
   font-weight: 700;
 }
 .item label span {
