@@ -33,3 +33,18 @@ header .img-container {
   padding: 10px;
   margin: 4px 0px 0px 0px;
 }
+
+/* Itens */
+.item {
+  padding: 5px;
+}
+.item img {
+  padding-right: 5px;
+  float: left;
+}
+.item label {
+  font-weight: 700;
+}
+.item label span {
+  font-weight: normal;
+}
