@@ -41,6 +41,68 @@
     }];
 
     self.sendTest = function () {
+      self.test =
+      {
+        "quality": {
+          "oo": {
+            "note": 2,
+            "description": "asd fa"
+          },
+          "intelligence": {
+            "note": 1,
+            "description": "sfd asd"
+          },
+          "exceptionHandling": {
+            "note": 2,
+            "description": "f asd a"
+          },
+          "duplicatedCode": {
+            "note": 2,
+            "description": "asd fas"
+          },
+          "automatedTests": {
+            "note": 50,
+            "description": "df asd fa"
+          }
+        },
+        "maintainability": {
+          "inputFormat": {
+            "note": 2,
+            "description": "asdf a"
+          },
+          "addOperators": {
+            "note": 2,
+            "description": "sdf asd"
+          },
+          "alterOutput": {
+            "note": 3,
+            "description": "f asdf"
+          },
+          "leapYear": {
+            "note": 3,
+            "description": "df asd"
+          },
+          "maintainability": {
+            "note": 20,
+            "description": "f asdf"
+          }
+        },
+        "readability": {
+          "variables": {
+            "note": 2,
+            "description": "asdf a"
+          },
+          "methods": {
+            "note": 2,
+            "description": "asdf a"
+          },
+          "comments": {
+            "note": 1,
+            "description": "dfa sdfa"
+          }
+        }
+      };
+      
       testService.sendTest(self.test);
     };
   };
