@@ -3,13 +3,81 @@
   <head>
     <meta charset="utf-8">
     <title>Template de e-mail</title>
-    <link rel="stylesheet" href="style.css" charset="utf-8">
+    <style>
+      /* base */
+      @font-face {
+          font-family: ralewayMedium;
+          src: url('../../public/assets/fonts/Raleway-Medium.ttf');
+      }
+
+      body {
+        font-family: 'ralewayMedium', sans-serif;
+        box-sizing: border-box;
+        color: #212121;
+      }
+
+      header {
+        padding: 10px;
+        height: 140px;
+      }
+      header .img-container {
+        float: right;
+      }
+      header img {
+        height: 119px;
+      }
+      header h1{
+        font-size: 3em;
+        color: #34495E;
+        margin: 0px;
+      }
+      header h3 {
+        margin: 40px 0px 0px 0px;
+      }
+
+      footer {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      hr {
+          opacity: 0.2;
+      }
+
+      .underline {
+          color: #f9ae4c;
+          background-color: #f9ae4c;
+          width: 100%;
+          height: 3px;
+      }
+
+      /* Detalhes */
+      .title h2 {
+        padding: 10px;
+        margin: 4px 0px 0px 0px;
+        font-size: 1.2em;
+      }
+
+      .item {
+        padding: 5px;
+      }
+      .item img {
+        padding-right: 5px;
+        float: left;
+      }
+      .item .item-name {
+        font-weight: 700;
+      }
+      .item label span {
+        font-weight: normal;
+      }
+    </style>
   </head>
   <body>
 
     <header>
       <div class="img-container">
-        <img src="../../public/assets/img/levels/junior_2.png" alt="Imagem Qualificação" />
+        <img src="https://dl.dropboxusercontent.com/s/5uxqcebp3624mr5/junior_2.png?dl=0" alt="Imagem Qualificação" />
       </div>
       <div>
         <h3>[CANDIDATE_NAME]</h4>
@@ -24,7 +92,7 @@
       </div>
       <div class="itens">
         <div class="item">
-          <img src="../../public/assets/img/icons/error.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/wokns334zu11woe/error.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Orientação a Objetos</label> /
               <label>[OO.NOTE]</label> /
@@ -34,7 +102,7 @@
         </div>
 
         <div class="item">
-          <img src="../../public/assets/img/icons/alert.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Inteligência</label> /
               <label>[INTELLIGENCE.NOTE]</label> /
@@ -44,7 +112,7 @@
         </div>
 
         <div class="item">
-          <img src="../../public/assets/img/icons/alert.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Tratamento de Exceções</label> /
               <label>[EXCEPTION_HANDLIND.NOTE]</label> /
@@ -54,7 +122,7 @@
         </div>
 
         <div class="item">
-          <img src="../../public/assets/img/icons/ok.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Repetição de código</label> /
               <label>[DUPLICATED_CODE.NOTE]</label> /
@@ -64,7 +132,7 @@
         </div>
 
         <div class="item">
-          <img src="../../public/assets/img/icons/alert.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Testes automatizados</label> /
               <label>[AUTOMATED_TESTS.NOTE]</label> /
@@ -80,7 +148,7 @@
       </div>
       <div class="itens">
         <div class="item">
-          <img src="../../public/assets/img/icons/ok.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Alterar formato de entrada</label> /
               <label>[INPUT_FORMAT.NOTE]</label> /
@@ -90,7 +158,7 @@
         </div>
 
         <div class="item">
-          <img src="../../public/assets/img/icons/error.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/wokns334zu11woe/error.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Adicionar operações</label> /
               <label>[ADD_OPERATORS.NOTE]</label> /
@@ -100,7 +168,7 @@
         </div>
 
         <div class="item">
-          <img src="../../public/assets/img/icons/ok.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Alterar o formato de saída</label> /
               <label>[ALTER_OUTPUT.NOTE]</label> /
@@ -110,7 +178,7 @@
         </div>
 
         <div class="item">
-          <img src="../../public/assets/img/icons/error.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/wokns334zu11woe/error.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Ano bissexto</label> /
               <label>[LEAP_YEAR.NOTE]</label> /
@@ -120,7 +188,7 @@
         </div>
 
         <div class="item">
-          <img src="../../public/assets/img/icons/ok.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Testes automatizados</label> /
               <label>[MAINTAINABILITY.NOTE]</label>
@@ -136,7 +204,7 @@
       </div>
       <div class="itens">
         <div class="item">
-          <img src="../../public/assets/img/icons/ok.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Variáveis</label> /
               <label>[VARIABLES.NOTE]</label> /
@@ -146,7 +214,7 @@
         </div>
 
         <div class="item">
-          <img src="../../public/assets/img/icons/ok.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Métodos</label> /
               <label>[METHODS.NOTE]</label>
@@ -156,7 +224,7 @@
         </div>
 
         <div class="item">
-          <img src="../../public/assets/img/icons/alert.png" alt="Imagem de alerta" />
+          <img src="https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0" alt="Imagem de alerta" />
           <div>
               <label class="item-name">Comentários</label> /
               <label>[COMMENTS.NOTE]</label> /
@@ -167,6 +235,6 @@
     </div>
   </body>
   <footer>
-    <img src="../../public/assets/img/cwi/footer.png" alt="Logo CWI" />
+    <img src="https://dl.dropboxusercontent.com/s/4bzewvf4j6qver9/footer.png?dl=0" alt="Logo CWI" />
   </footer>
 </html>

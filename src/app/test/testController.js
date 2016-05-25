@@ -6,19 +6,21 @@
     var controller = {};
 
     controller.saveTest = function (req, res) {
-      var result = "a";//buildResult(req.body);
+      var result = buildResult(req.body);
       sendEmail(result);
       res.json({ ok: true });
     };
 
-    var sendEmail = function() {
+    var sendEmail = function(result) {
       var email   = require("emailjs");
       var server  = email.server.connect({
          user:    "rafaeldeoliveirabenetti@gmail.com",
          password:"orrardgdrdr*google",
-         host:    "smtp.gmail.com",
-         ssl:     true
+         host: "smtp.gmail.com",
+         ssl:true
       });
+
+      console.log(result);
 
       var message = {
          text:    "I hope this works",
@@ -27,7 +29,7 @@
          subject: "testing emailjs",
          attachment:
          [
-            {data:"<html>i <i>hope</i> this works!</html>", alternative:true}
+            {data:result, alternative:true}
          ]
       };
 
