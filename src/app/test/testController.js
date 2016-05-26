@@ -12,35 +12,28 @@
     };
 
     var sendEmail = function(result) {
-      var email   = require("emailjs");
-      var server  = email.server.connect({
-         user:    "rafaeldeoliveirabenetti@gmail.com",
-         password:"orrardgdrdr*google",
+      var email = require("emailjs");
+      var server = email.server.connect({
+         user: "rafaeldeoliveirabenetti@gmail.com",
+         password: "orrardgdrdr*google",
          host: "smtp.gmail.com",
-         ssl:true
+         ssl: true
       });
 
       console.log(result);
 
       var message = {
-         text:    "I hope this works",
-         from:    "you <rafa375@gmail.com>",
-         to:      "someone <rafaeldeoliveirabenetti@gmail.com>",
-         subject: "testing emailjs",
+         text: "I hope this works",
+         from: "Sistema de Correções <rafaeldeoliveirabenetti@gmail.com>",
+         to: "someone <rafaelbenetti@cwi.com.br>, another <rafaeldeoliveirabenetti@gmail.com",
+         subject: "Prova Técnica .NET",
          attachment:
          [
-            {data:result, alternative:true}
+            { data:result, alternative:true }
          ]
       };
 
-      // send the message and get a callback with an error or details of the message that was sent
       server.send(message, function(err, message) { console.log(err || message); });
-
-      // you can continue to send more messages with successive calls to 'server.send',
-      // they will be queued on the same smtp connection
-
-      // or you can create a new server connection with 'email.server.connect'
-      // to asynchronously send individual emails instead of a queue
     };
 
     var validateTest = function(test) {
