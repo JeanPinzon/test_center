@@ -34,9 +34,21 @@
       <div class="tab-content ">
         <div class="tab-pane active" id="candidateTab">
           <div class="container">
-            <div class="form-group">
+            <div class="form-group col-sm-12">
               <label>Nome:</label>
               <input ng-model="homeCtrl.test.name" type="text" class="form-control" placeholder="Nome">
+            </div>
+            <div class="form-group col-sm-6">
+              <label>Resultado dos testes:</label>
+              <select ng-model="homeCtrl.test.result.unitTests.note"
+              class="form-control"
+              ng-options="option.value as option.text for option in homeCtrl.automatedTestsOptions"></select>
+            </div>
+            <div class="form-group col-sm-6">
+              <label>Observação:</label>
+              <textarea ng-model="homeCtrl.test.result.unitTests.description"
+              class="form-control"
+              rows="1"></textarea>
             </div>
           </div>
         </div>
@@ -165,7 +177,7 @@
             </div>
 
             <div class="form-group col-sm-6">
-              <label>Testes automatizados:</label>
+              <label>Índice de Manutenabilidade:</label>
               <select ng-model="homeCtrl.test.maintainability.maintainability.note"
               class="form-control"
               ng-options="option.value as option.text for option in homeCtrl.automatedTestsOptions"></select>
@@ -225,13 +237,10 @@
         <div class="tab-pane" id="endTab">
           <div class="container">
             <div class="form-group">
-              <label>E-mail para envio:</label>
-              <input type="text" class="form-control" placeholder="Email para envio" ng-model="homeCtrl.test.emails">
+              <button type="button" class="btn btn-success" ng-click="homeCtrl.preview()">Visualizar</button>
+              <button type="button" class="btn btn-success" ng-click="homeCtrl.sendTest()">Finalizar</button>
             </div>
-            <div class="form-group">
-              <button type="button" class="btn btn-success" ng-click="homeCtrl.sendTest()">Finalizar Avaliação</button>
-            </div>
-              <pre ng-bind="homeCtrl.test | json"></pre>
+            <iframe id="preview" width="1125" height="1010" style="display: none"></iframe>
           </div>
         </div>
       </div>

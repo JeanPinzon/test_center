@@ -8,19 +8,19 @@
     self.defaultOptions = [{
       text: 'Selecione'
     },{
-      value: 1,
+      value: 0,
       text: '1 - Não atende ao requisito'
     },{
-      value: 2,
+      value: 25,
       text: '2 - Abaixo da média'
     },{
-      value: 3,
+      value: 50,
       text: '3 - Normal'
     },{
-      value: 4,
+      value: 75,
       text: '4 - Acima do desejado'
     },{
-      value: 5,
+      value: 100,
       text: '5 - Excelente'
     }];
 
@@ -30,21 +30,39 @@
       value: 0,
       text: '0% - Péssimo'
     },{
-      value: 20,
+      value: 33,
       text: '20% - Ruim'
     },{
-      value: 50,
+      value: 66,
       text: '50% - OK'
     },{
-      value: 70,
+      value: 100,
       text: '70% - Excelente'
     }];
 
     self.sendTest = function () {
+      self.configureFakeTest();
+      self.test.preview = false;
+      testService.sendTest(self.test);
+    };
+
+    self.preview = function () {
+      self.configureFakeTest();
+      self.test.preview = true;
+      testService.sendTest(self.test);
+    };
+
+    self.configureFakeTest = function () {
       self.test =
       {
         "name": "Um Dois Três de Oliveira Quatro",
         "level": "Júnior 2",
+        "result": {
+          "unitTests": {
+            "note" : "2 - Abaixo da média",
+            "description": "Dividiu as operações em alguns métodos, porém executa de forma procedural."
+          }
+        },
         "quality": {
           "oo": {
             "note" : "2 - Abaixo da média",
@@ -104,8 +122,6 @@
           }
         }
       };
-
-      testService.sendTest(self.test);
     };
   };
 

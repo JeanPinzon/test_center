@@ -5,3 +5,7 @@ h3 {
 .container {
 	padding-top: 15px;
 }
+
+iframe#preview {
+	border: solid 1px #ccc !important;
+}
