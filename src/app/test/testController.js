@@ -5,13 +5,21 @@
 
     var controller = {};
 
-    controller.saveTest = function (req, res) {
-      var result = buildResult(req.body);
+    controller.send = function (req, res) {
+      var html = buildResult(req.body);
+      sendEmail(html);
+      res.json({ ok: true, html: html });
+    };
 
-      if(!req.body.preview)
-        sendEmail(result);
+    controller.preview = function (req, res) {
+      var html = buildResult(req.body);
+      res.json({ ok: true, html: html });
+    };
 
-      res.json({ ok: true, html: result });
+    controller.getLevel = function(req, res) {
+      var level = validate(req.body);
+      console.log(level);
+      res.json({ ok: true, level: level });
     };
 
     var sendEmail = function(result) {
@@ -22,8 +30,6 @@
         host: "smtp.gmail.com",
         ssl: true
       });
-
-      console.log(result);
 
       var message = {
         text: "I hope this works",
@@ -39,9 +45,10 @@
       server.send(message, function(err, message) { console.log(err || message); });
     };
 
-    // TODO: Must return the canditadete's level.
-    var validateTest = function(test) {
+    var validate = function(test) {
       var score = calculateScore(test);
+      console.log(test);
+
       var level;
 
       if (score < 2) {
@@ -77,7 +84,7 @@
     var calculateScore = function(test){
 
       var score =
-        getValueByOption(1, test.result.unitTests.note)
+      getValueByOption(1, test.result.unitTests.note)
       + getValueByOption(2, test.quality.oo.note)
       + getValueByOption(2, test.quality.intelligence.note)
       + getValueByOption(0.5, test.quality.exceptionHandling.note)
@@ -99,10 +106,11 @@
 
       var fs = require('fs');
       var html = fs.readFileSync('./templates/email/index.html', 'utf8');
-      test.level = validateTest(test);
+      test.level = validate(test);
       html = html.replace("[CANDIDATE_NAME]", test.name)
       .replace("[CANDIDATE_LEVEL]", test.level)
 
+      // TODO: Populate the tests results.
       .replace("[UNIT_TESTS.NOTE]", test.level)
       .replace("[UNIT_TESTS.DESCRIPTION]", test.level)
 

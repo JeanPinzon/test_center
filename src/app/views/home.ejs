@@ -27,6 +27,10 @@
         </li>
         <li><a href="#readabilityTab" data-toggle="tab">Legibilidade</a>
         </li>
+        <li><a href="#reviewTab" data-toggle="tab" ng-click="homeCtrl.getLevel()">Revisar</a>
+        </li>
+        <li><a href="#previewTab" data-toggle="tab" ng-click="homeCtrl.preview()">Visualizar</a>
+        </li>
         <li><a href="#endTab" data-toggle="tab">Concluir</a>
         </li>
       </ul>
@@ -234,17 +238,44 @@
           </div>
         </div>
 
-        <div class="tab-pane" id="endTab">
+        <div class="tab-pane" id="reviewTab">
           <div class="container">
-            <div class="form-group">
-              <button type="button" class="btn btn-success" ng-click="homeCtrl.preview()">Visualizar</button>
-              <button type="button" class="btn btn-success" ng-click="homeCtrl.sendTest()">Finalizar</button>
+            <div class="form-group col-sm-6">
+              <label>Nível:</label>
+              <select ng-model="homeCtrl.test.level"
+              class="form-control"
+              ng-options="option.value as option.text for option in self.levels"></select>
             </div>
-            <iframe id="preview" width="1125" height="1010" style="display: none"></iframe>
+            <div class="form-group col-sm-6">
+              <label>Observação Final:</label>
+              <textarea ng-model="homeCtrl.test.readability.methods.description"
+              class="form-control"
+              rows="1"></textarea>
+            </div>
           </div>
         </div>
-      </div>
 
+        <div class="tab-pane" id="previewTab">
+          <div class="container">
+            <iframe id="preview" style="display: none"></iframe>
+          </div>
+        </div>
+
+        <div class="tab-pane" id="endTab">
+          <div class="jumbotron">
+            <h4>Quase lá!</h4>
+            <p>Aqui você confirma sua correção. Ao finalizar, o resultado será enviado por e-mail para todos os participantes do processo de seleção. Se necessário você pode revisar sua correção.</p>
+            <button type="button" class="btn btn-success" ng-click="homeCtrl.sendTest()">Finalizar</button>
+          </div>
+        </div>
+
+        <div class="form-group col-sm-6">
+        </div>
+        <div ng-hide="true" class="form-group col-sm-6 btn-group-right">
+          <button type="button" id="prevBtn" class="btn btn-default">Voltar</button>
+          <button type="button" id="nextBtn" class="btn btn-success">Prosseguir</button>
+        </div>
+      </div>
     </div>
   </div>
 

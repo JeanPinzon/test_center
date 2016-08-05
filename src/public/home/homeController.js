@@ -40,16 +40,44 @@
       text: '70% - Excelente'
     }];
 
+    self.levels = [{
+      text: 'Selecione'
+    },{
+      value: 1,
+      text: 'Júnior 1'
+    },{
+      value: 2,
+      text: 'Júnior 2'
+    },{
+      value: 3,
+      text: 'Júnior 3'
+    },{
+      value: 4,
+      text: 'Pleno 1'
+    },{
+      value: 5,
+      text: 'Pleno 2'
+    },{
+      value: 6,
+      text: 'Pleno 3'
+    },{
+      value: 7,
+      text: 'Sênior'
+    }];
+
     self.sendTest = function () {
       self.configureFakeTest();
-      self.test.preview = false;
       testService.sendTest(self.test);
     };
 
     self.preview = function () {
       self.configureFakeTest();
-      self.test.preview = true;
-      testService.sendTest(self.test);
+      testService.preview(self.test);
+    };
+
+    self.getLevel = function() {
+      self.configureFakeTest();
+      self.level = testService.getLevel(self.test);
     };
 
     self.configureFakeTest = function () {
@@ -59,65 +87,65 @@
         "level": "Júnior 2",
         "result": {
           "unitTests": {
-            "note" : "2 - Abaixo da média",
+            "note" : "100",
             "description": "Dividiu as operações em alguns métodos, porém executa de forma procedural."
           }
         },
         "quality": {
           "oo": {
-            "note" : "2 - Abaixo da média",
+            "note" : "100",
             "description": "Dividiu as operações em alguns métodos, porém executa de forma procedural."
           },
           "intelligence": {
-            "note" : "1 - Não atende ao requisito",
+            "note" : "100",
             "description": "O código inteiro possui fluxos bem distintos para adição e subtração, mas separou bem o código."
           },
           "exceptionHandling": {
-            "note" : "2 - Abaixo da média",
+            "note" : "100",
             "description": "Valida o operador e o formato da data informado, mas não impede número de dias, meses e anos inválidos."
           },
           "duplicatedCode": {
-            "note" : "2 - Abaixo da média",
+            "note" : "100",
             "description": "O código não se repete, bem encapsulado e separado."
           },
           "automatedTests": {
-            "note" : "5 - Excelente",
+            "note" : "100",
             "description": "Escreveu 10 testes unitários, mas muitos usando o mesmo modificador."
           }
         },
         "maintainability": {
           "inputFormat": {
-            "note" : "2 - Abaixo da média",
+            "note" : "100",
             "description": "Local único e está simples, mas não validado."
           },
           "addOperators": {
-            "note" : "2 - Abaixo da média",
+            "note" : "100",
             "description": "Seria necessário nova implementação de forma completa."
           },
           "alterOutput": {
-            "note" : "3 - Normal",
+            "note" : "100",
             "description": "Encapsula a formatação em um método."
           },
           "leapYear": {
-            "note" : "3 - Normal",
+            "note" : "100",
             "description": "O número de dias está fixo e não há nenhum verificador."
           },
           "maintainability": {
-            "note" : "2 - Abaixo da média",
+            "note" : "100",
             "description": "62 % de acertos"
           }
         },
         "readability": {
           "variables": {
-            "note" : "2 - Abaixo da média",
+            "note" : "100",
             "description": "Os nomes das variáveis são bons e fazem o que propõe."
           },
           "methods": {
-            "note" : "2 - Abaixo da média",
+            "note" : "100",
             "description": ""
           },
           "comments": {
-            "note" : "1 - Não atende ao requisito",
+            "note" : "100",
             "description": "Poderia ser muito melhor a separação e reaproveitamento."
           }
         }

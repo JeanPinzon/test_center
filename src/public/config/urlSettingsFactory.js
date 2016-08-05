@@ -5,12 +5,22 @@
 
     var host = 'http://localhost:3000';
 
-    var getUrlToSendTest = function () {
+    var getUrlToSend = function () {
       return host + '/api/v1/avaliacao';
     };
 
+    var getUrlToPreview = function () {
+      return host + '/api/v1/preview';
+    };
+
+    var getUrlToGetLevel = function () {
+      return host + '/api/v1/level';
+    };
+
     return {
-      getUrlToSendTest: getUrlToSendTest
+      getUrlToSend: getUrlToSend,
+      getUrlToPreview: getUrlToPreview,
+      getUrlToGetLevel: getUrlToGetLevel
     };
 
   };

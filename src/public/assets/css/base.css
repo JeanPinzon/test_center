@@ -1,3 +1,7 @@
+body {
+	font-size: 14px;
+}
+
 h3 {
 	text-align: center;
 }
@@ -7,5 +11,22 @@ h3 {
 }
 
 iframe#preview {
-	border: solid 1px #ccc !important;
+	border: 0px !important;
+	margin-left: -15px!important;
+	min-height: 1000px;
+  width: 100%;
+}
+
+#endTab .jumbotron {
+    padding: 10px 20px 30px 20px;
+		border-top-left-radius: 0px;
+		border-top-right-radius: 0px;
+}
+
+#endTab .jumbotron p {
+	font-size: 14px;
+}
+
+.btn-group-right {
+	text-align: right;
 }

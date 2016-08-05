@@ -6,6 +6,10 @@
     var testController = app.test.testController;
 
     app.route('/api/v1/avaliacao')
-       .post(testController.saveTest);
+      .post(testController.send);
+    app.route('/api/v1/preview')
+      .post(testController.preview);
+    app.route('/api/v1/level')
+       .post(testController.getLevel);
   };
 })();

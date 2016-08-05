@@ -5,24 +5,41 @@
 
     var sendTest = function (test) {
       var deferred= $q.defer();
-      $http.post(urlSettingsFactory.getUrlToSendTest(), test).then(function(response) {
+      $http.post(urlSettingsFactory.getUrlToSend(), test).then(function(response) {
+        deferred.resolve;
+      });
+      return deferred.promise;
+    };
 
-        if (test.preview) {
-          var doc = document.getElementById('preview').contentWindow.document;
-          document.getElementById('preview').style.display = "block";
+    var preview = function (test) {
+      var deferred= $q.defer();
+      $http.post(urlSettingsFactory.getUrlToPreview(), test).then(function(response) {
 
-          doc.open();
-          doc.write(response.data.html);
-          doc.close();
-        }
+        var doc = document.getElementById('preview').contentWindow.document;
+        document.getElementById('preview').style.display = "block";
+
+        doc.open();
+        doc.write(response.data.html);
+        doc.close();
 
         deferred.resolve;
       });
       return deferred.promise;
     };
 
+    var getLevel = function (test) {
+      var deferred= $q.defer();
+      $http.post(urlSettingsFactory.getUrlToGetLevel(), test).then(function(response) {
+        return response.data.level;
+        deferred.resolve;
+      });
+      return deferred.promise;
+    };
+
     return {
-      sendTest: sendTest
+      sendTest: sendTest,
+      preview: preview,
+      getLevel: getLevel,
     };
 
   };
