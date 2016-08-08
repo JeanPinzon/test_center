@@ -30,8 +30,7 @@
     var getLevel = function (test) {
       var deferred= $q.defer();
       $http.post(urlSettingsFactory.getUrlToGetLevel(), test).then(function(response) {
-        return response.data.level;
-        deferred.resolve;
+        deferred.resolve(response);
       });
       return deferred.promise;
     };

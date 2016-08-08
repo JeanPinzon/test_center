@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var homeController = function (testService) {
+  var homeController = function (testService, $filter) {
 
     var self = this;
 
@@ -75,16 +75,25 @@
       testService.preview(self.test);
     };
 
+    self.getLevelByDescription = function(description){
+        var level = $filter('filter')(self.levels, description)[0].value;
+        return level;
+    };
+
     self.getLevel = function() {
       self.configureFakeTest();
-      self.level = testService.getLevel(self.test);
+      testService.getLevel(self.test).then(function(response){
+        var levelDescription = response.data.level;
+        var level = self.getLevelByDescription(levelDescription);
+        self.test.level = level;
+      });
     };
 
     self.configureFakeTest = function () {
       self.test =
       {
         "name": "Um Dois Três de Oliveira Quatro",
-        "level": "Júnior 2",
+        "level": 4,
         "result": {
           "unitTests": {
             "note" : "100",
@@ -153,9 +162,5 @@
     };
   };
 
-  angular.module('testCenter').controller('homeController', [
-    'testService',
-    homeController
-  ]);
-
+  angular.module('testCenter').controller('homeController', ['testService', '$filter', homeController]);
 })();
