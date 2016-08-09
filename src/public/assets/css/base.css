@@ -14,13 +14,13 @@ iframe#preview {
 	border: 0px !important;
 	margin-left: -15px!important;
 	min-height: 1000px;
-  width: 100%;
+	width: 100%;
 }
 
 #endTab .jumbotron {
-    padding: 10px 20px 30px 20px;
-		border-top-left-radius: 0px;
-		border-top-right-radius: 0px;
+	padding: 10px 20px 30px 20px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
 }
 
 #endTab .jumbotron p {
@@ -29,4 +29,37 @@ iframe#preview {
 
 .btn-group-right {
 	text-align: right;
+}
+
+.main md-content {
+	margin: 0 auto;
+	background-color: transparent !important;
+}
+.main md-content md-tabs {
+	background: #f6f6f6;
+	border: 1px solid #e1e1e1;
+}
+.main md-content md-tabs md-tabs-wrapper {
+	background: white;
+}
+.main md-content h1:first-child {
+	margin-top: 0;
+}
+
+@media screen and (max-width: 1199px) {
+	#content {
+		width: 90%;
+	}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+	#content {
+		width: 80%;
+	}
+}
+
+@media screen and (min-width: 1401px) {
+	#content {
+		width: 60%;
+	}
 }

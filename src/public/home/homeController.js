@@ -85,8 +85,8 @@
     };
 
     self.canPreview = function(){
-      return $scope.testForm.$valid && !!$scope.testForm.feedback.$modelValue;
-    }
+      return $scope.testForm.$valid && true;//!!$scope.testForm.feedback.$modelValue;
+    };
 
     self.configureFakeTest = function () {
       self.test =

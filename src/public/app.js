@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var app = angular.module('testCenter', []);
+  var app = angular.module('testCenter', ['ngMaterial']);
 
   app.config(['$httpProvider', function ($httpProvider) {
       $httpProvider.defaults.headers.common.Accept = 'application/json, text/javascript';
