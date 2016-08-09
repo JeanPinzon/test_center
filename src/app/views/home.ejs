@@ -27,255 +27,286 @@
         </li>
         <li><a href="#readabilityTab" data-toggle="tab">Legibilidade</a>
         </li>
-        <li><a href="#reviewTab" data-toggle="tab" ng-click="homeCtrl.getLevel()">Revisar</a>
+        <li ng-class="{'disabled': !testForm.$valid}"><a href="#reviewTab" data-toggle="tab" ng-click="homeCtrl.getLevel()">Revisar</a>
         </li>
-        <li><a href="#previewTab" data-toggle="tab" ng-click="homeCtrl.preview()">Visualizar</a>
+        <li ng-class="{'disabled': !homeCtrl.canPreview()}"><a href="#previewTab" data-toggle="tab" ng-click="homeCtrl.preview()">Visualizar</a>
         </li>
-        <li><a href="#endTab" data-toggle="tab">Concluir</a>
+        <li ng-class="{'disabled': !homeCtrl.canPreview()}"><a href="#endTab" data-toggle="tab">Concluir</a>
         </li>
       </ul>
 
-      <div class="tab-content ">
-        <div class="tab-pane active" id="candidateTab">
-          <div class="container">
-            <div class="form-group col-sm-12">
-              <label>Nome:</label>
-              <input ng-model="homeCtrl.test.name" type="text" class="form-control" placeholder="Nome">
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Resultado dos testes:</label>
-              <select ng-model="homeCtrl.test.result.unitTests.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.automatedTestsOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.result.unitTests.description"
-              class="form-control"
-              rows="1"></textarea>
-            </div>
-          </div>
-        </div>
-
-        <div class="tab-pane" id="qualityTab">
-          <div class="container">
-            <div class="form-group col-sm-6">
-              <label>Orientação a objetos:</label>
-              <select ng-model="homeCtrl.test.quality.oo.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.defaultOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.quality.oo.description"
-              class="form-control"
-              rows="1"></textarea>
-            </div>
-
-            <div class="form-group col-sm-6">
-              <label>Inteligência:</label>
-              <select ng-model="homeCtrl.test.quality.intelligence.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.defaultOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.quality.intelligence.description"
-              class="form-control"
-              rows="1"></textarea>
-            </div>
-
-            <div class="form-group col-sm-6">
-              <label>Tratamento de Exceções:</label>
-              <select ng-model="homeCtrl.test.quality.exceptionHandling.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.defaultOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.quality.exceptionHandling.description"
-              class="form-control"
-              rows="1"></textarea>
-            </div>
-
-            <div class="form-group col-sm-6">
-              <label>Repetição de código:</label>
-              <select ng-model="homeCtrl.test.quality.duplicatedCode.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.defaultOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.quality.duplicatedCode.description"
-              class="form-control"
-              rows="1"></textarea>
-            </div>
-
-            <div class="form-group col-sm-6">
-              <label>Testes automatizados:</label>
-              <select ng-model="homeCtrl.test.quality.automatedTests.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.automatedTestsOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.quality.automatedTests.description"
-              class="form-control"
-              rows="1"></textarea>
+      <form name="testForm" method="post">
+        <div class="tab-content ">
+          <div class="tab-pane active" id="candidateTab">
+            <div class="container">
+              <div class="form-group col-sm-12">
+                <label>Nome:</label>
+                <input ng-model="homeCtrl.test.name" type="text" class="form-control" placeholder="Nome" required>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Resultado dos testes:</label>
+                <select ng-model="homeCtrl.test.result.unitTests.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.automatedTestsOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.result.unitTests.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="tab-pane" id="maintainabilityTab">
-          <div class="container">
-            <div class="form-group col-sm-6">
-              <label>Alterar formato de entrada:</label>
-              <select ng-model="homeCtrl.test.maintainability.inputFormat.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.defaultOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.maintainability.inputFormat.description"
-              class="form-control"
-              rows="1"></textarea>
-            </div>
+          <div class="tab-pane" id="qualityTab">
+            <div class="container">
+              <div class="form-group col-sm-6">
+                <label>Orientação a objetos:</label>
+                <select ng-model="homeCtrl.test.quality.oo.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.defaultOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.quality.oo.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
 
-            <div class="form-group col-sm-6">
-              <label>Adicionar operações:</label>
-              <select ng-model="homeCtrl.test.maintainability.addOperators.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.defaultOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.maintainability.addOperators.description"
-              class="form-control"
-              rows="1"></textarea>
-            </div>
+              <div class="form-group col-sm-6">
+                <label>Inteligência:</label>
+                <select ng-model="homeCtrl.test.quality.intelligence.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.defaultOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.quality.intelligence.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
 
-            <div class="form-group col-sm-6">
-              <label>Alterar o formato de saída:</label>
-              <select ng-model="homeCtrl.test.maintainability.alterOutput.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.defaultOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.maintainability.alterOutput.description"
-              class="form-control"
-              rows="1"></textarea>
-            </div>
+              <div class="form-group col-sm-6">
+                <label>Tratamento de Exceções:</label>
+                <select ng-model="homeCtrl.test.quality.exceptionHandling.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.defaultOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.quality.exceptionHandling.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
 
-            <div class="form-group col-sm-6">
-              <label>Ano bissexto:</label>
-              <select ng-model="homeCtrl.test.maintainability.leapYear.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.defaultOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.maintainability.leapYear.description"
-              class="form-control"
-              rows="1"></textarea>
-            </div>
+              <div class="form-group col-sm-6">
+                <label>Repetição de código:</label>
+                <select ng-model="homeCtrl.test.quality.duplicatedCode.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.defaultOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.quality.duplicatedCode.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
 
-            <div class="form-group col-sm-6">
-              <label>Índice de Manutenabilidade:</label>
-              <select ng-model="homeCtrl.test.maintainability.maintainability.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.automatedTestsOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.maintainability.maintainability.description"
-              class="form-control"
-              rows="1"></textarea>
+              <div class="form-group col-sm-6">
+                <label>Testes automatizados:</label>
+                <select ng-model="homeCtrl.test.quality.automatedTests.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.automatedTestsOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.quality.automatedTests.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="tab-pane" id="readabilityTab">
-          <div class="container">
-            <div class="form-group col-sm-6">
-              <label>Variaveis:</label>
-              <select ng-model="homeCtrl.test.readability.variables.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.defaultOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.readability.variables.description"
-              class="form-control"
-              rows="1"></textarea>
-            </div>
+          <div class="tab-pane" id="maintainabilityTab">
+            <div class="container">
+              <div class="form-group col-sm-6">
+                <label>Alterar formato de entrada:</label>
+                <select ng-model="homeCtrl.test.maintainability.inputFormat.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.defaultOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.maintainability.inputFormat.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
 
-            <div class="form-group col-sm-6">
-              <label>Métodos:</label>
-              <select ng-model="homeCtrl.test.readability.methods.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.defaultOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.readability.methods.description"
-              class="form-control"
-              rows="1"></textarea>
-            </div>
+              <div class="form-group col-sm-6">
+                <label>Adicionar operações:</label>
+                <select ng-model="homeCtrl.test.maintainability.addOperators.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.defaultOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.maintainability.addOperators.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
 
-            <div class="form-group col-sm-6">
-              <label>Comentários:</label>
-              <select ng-model="homeCtrl.test.readability.comments.note"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.defaultOptions"></select>
-            </div>
-            <div class="form-group col-sm-6">
-              <label>Observação:</label>
-              <textarea ng-model="homeCtrl.test.readability.comments.description"
-              class="form-control"
-              rows="1"></textarea>
+              <div class="form-group col-sm-6">
+                <label>Alterar o formato de saída:</label>
+                <select ng-model="homeCtrl.test.maintainability.alterOutput.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.defaultOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.maintainability.alterOutput.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
+
+              <div class="form-group col-sm-6">
+                <label>Ano bissexto:</label>
+                <select ng-model="homeCtrl.test.maintainability.leapYear.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.defaultOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.maintainability.leapYear.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
+
+              <div class="form-group col-sm-6">
+                <label>Índice de Manutenabilidade:</label>
+                <select ng-model="homeCtrl.test.maintainability.maintainability.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.automatedTestsOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.maintainability.maintainability.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="tab-pane" id="reviewTab">
-          <div class="container">
-            <div class="form-group col-sm-6">
-              <label>Nível:</label>
-              <select ng-model="homeCtrl.test.level"
-              class="form-control"
-              ng-options="option.value as option.text for option in homeCtrl.levels"></select>
+          <div class="tab-pane" id="readabilityTab">
+            <div class="container">
+              <div class="form-group col-sm-6">
+                <label>Variaveis:</label>
+                <select ng-model="homeCtrl.test.readability.variables.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.defaultOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.readability.variables.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
+
+              <div class="form-group col-sm-6">
+                <label>Métodos:</label>
+                <select ng-model="homeCtrl.test.readability.methods.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.defaultOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.readability.methods.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
+
+              <div class="form-group col-sm-6">
+                <label>Comentários:</label>
+                <select ng-model="homeCtrl.test.readability.comments.note"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.defaultOptions"
+                required></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação:</label>
+                <textarea ng-model="homeCtrl.test.readability.comments.description"
+                class="form-control"
+                rows="1"
+                required></textarea>
+              </div>
             </div>
-            <div class="form-group col-sm-6">
-              <label>Observação Final:</label>
-              <textarea ng-model="homeCtrl.test.readability.methods.description"
-              class="form-control"
-              rows="1"></textarea>
+          </div>
+
+          <div class="tab-pane" id="reviewTab">
+            <div class="container">
+              <div class="form-group col-sm-6">
+                <label>Nível:</label>
+                <select ng-model="homeCtrl.test.level"
+                class="form-control"
+                ng-options="option.value as option.text for option in homeCtrl.levels"></select>
+              </div>
+              <div class="form-group col-sm-6">
+                <label>Observação Final:</label>
+                <textarea name="feedback" ng-model="homeCtrl.test.feedback"
+                class="form-control"
+                rows="1"></textarea>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="tab-pane" id="previewTab">
-          <div class="container">
-            <iframe id="preview" style="display: none"></iframe>
+          <div class="tab-pane" id="previewTab">
+            <div class="container">
+              <iframe id="preview" style="display: none"></iframe>
+            </div>
+          </div>
+
+          <div class="tab-pane" id="endTab">
+            <div class="jumbotron">
+              <h4>Quase lá!</h4>
+              <p>Aqui você confirma sua correção. Ao finalizar, o resultado será enviado por e-mail para todos os participantes do processo de seleção. Se necessário você pode revisar sua correção.</p>
+              <button type="button" class="btn btn-success" ng-click="homeCtrl.sendTest()">Finalizar</button>
+            </div>
+          </div>
+
+          <div class="form-group col-sm-6">
+          </div>
+          <div ng-hide="true" class="form-group col-sm-6 btn-group-right">
+            <button type="button" id="prevBtn" class="btn btn-default">Voltar</button>
+            <button type="button" id="nextBtn" class="btn btn-success">Prosseguir</button>
           </div>
         </div>
+      </form>
 
-        <div class="tab-pane" id="endTab">
-          <div class="jumbotron">
-            <h4>Quase lá!</h4>
-            <p>Aqui você confirma sua correção. Ao finalizar, o resultado será enviado por e-mail para todos os participantes do processo de seleção. Se necessário você pode revisar sua correção.</p>
-            <button type="button" class="btn btn-success" ng-click="homeCtrl.sendTest()">Finalizar</button>
-          </div>
-        </div>
-
-        <div class="form-group col-sm-6">
-        </div>
-        <div ng-hide="true" class="form-group col-sm-6 btn-group-right">
-          <button type="button" id="prevBtn" class="btn btn-default">Voltar</button>
-          <button type="button" id="nextBtn" class="btn btn-success">Prosseguir</button>
-        </div>
-      </div>
     </div>
   </div>
 

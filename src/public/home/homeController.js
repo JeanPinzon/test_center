@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var homeController = function (testService, $filter) {
+  var homeController = function (testService, $filter, $scope) {
 
     var self = this;
 
@@ -41,8 +41,6 @@
     }];
 
     self.levels = [{
-      text: 'Selecione'
-    },{
       value: 1,
       text: 'Júnior 1'
     },{
@@ -66,22 +64,19 @@
     }];
 
     self.sendTest = function () {
-      self.configureFakeTest();
       testService.sendTest(self.test);
     };
 
     self.preview = function () {
-      self.configureFakeTest();
       testService.preview(self.test);
     };
 
     self.getLevelByDescription = function(description){
-        var level = $filter('filter')(self.levels, description)[0].value;
-        return level;
+      var level = $filter('filter')(self.levels, description)[0].value;
+      return level;
     };
 
     self.getLevel = function() {
-      self.configureFakeTest();
       testService.getLevel(self.test).then(function(response){
         var levelDescription = response.data.level;
         var level = self.getLevelByDescription(levelDescription);
@@ -89,78 +84,84 @@
       });
     };
 
+    self.canPreview = function(){
+      return $scope.testForm.$valid && !!$scope.testForm.feedback.$modelValue;
+    }
+
     self.configureFakeTest = function () {
       self.test =
       {
         "name": "Um Dois Três de Oliveira Quatro",
         "level": 4,
+        "complete": false,
         "result": {
           "unitTests": {
-            "note" : "100",
+            "note" : 66,
             "description": "Dividiu as operações em alguns métodos, porém executa de forma procedural."
           }
         },
         "quality": {
           "oo": {
-            "note" : "100",
+            "note" : 100,
             "description": "Dividiu as operações em alguns métodos, porém executa de forma procedural."
           },
           "intelligence": {
-            "note" : "100",
+            "note" : 100,
             "description": "O código inteiro possui fluxos bem distintos para adição e subtração, mas separou bem o código."
           },
           "exceptionHandling": {
-            "note" : "100",
+            "note" : 100,
             "description": "Valida o operador e o formato da data informado, mas não impede número de dias, meses e anos inválidos."
           },
           "duplicatedCode": {
-            "note" : "100",
+            "note" : 100,
             "description": "O código não se repete, bem encapsulado e separado."
           },
           "automatedTests": {
-            "note" : "100",
+            "note" : 100,
             "description": "Escreveu 10 testes unitários, mas muitos usando o mesmo modificador."
           }
         },
         "maintainability": {
           "inputFormat": {
-            "note" : "100",
+            "note" : 100,
             "description": "Local único e está simples, mas não validado."
           },
           "addOperators": {
-            "note" : "100",
+            "note" : 100,
             "description": "Seria necessário nova implementação de forma completa."
           },
           "alterOutput": {
-            "note" : "100",
+            "note" : 100,
             "description": "Encapsula a formatação em um método."
           },
           "leapYear": {
-            "note" : "100",
+            "note" : 100,
             "description": "O número de dias está fixo e não há nenhum verificador."
           },
           "maintainability": {
-            "note" : "100",
+            "note" : 100,
             "description": "62 % de acertos"
           }
         },
         "readability": {
           "variables": {
-            "note" : "100",
+            "note" : 100,
             "description": "Os nomes das variáveis são bons e fazem o que propõe."
           },
           "methods": {
-            "note" : "100",
-            "description": ""
+            "note" : 100,
+            "description": "asdf asdf asd f"
           },
           "comments": {
-            "note" : "100",
+            "note" : 100,
             "description": "Poderia ser muito melhor a separação e reaproveitamento."
           }
         }
       };
     };
+    self.configureFakeTest();
   };
 
-  angular.module('testCenter').controller('homeController', ['testService', '$filter', homeController]);
+  angular.module('testCenter').controller('homeController', ['testService', '$filter', '$scope', homeController]);
 })();
