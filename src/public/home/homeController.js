@@ -102,23 +102,23 @@
         },
         "quality": {
           "oo": {
-            "note" : 100,
+            "note" : 0,
             "description": "Dividiu as operações em alguns métodos, porém executa de forma procedural."
           },
           "intelligence": {
-            "note" : 100,
+            "note" : 25,
             "description": "O código inteiro possui fluxos bem distintos para adição e subtração, mas separou bem o código."
           },
           "exceptionHandling": {
-            "note" : 100,
+            "note" : 50,
             "description": "Valida o operador e o formato da data informado, mas não impede número de dias, meses e anos inválidos."
           },
           "duplicatedCode": {
-            "note" : 100,
+            "note" : 75,
             "description": "O código não se repete, bem encapsulado e separado."
           },
           "automatedTests": {
-            "note" : 100,
+            "note" : 33,
             "description": "Escreveu 10 testes unitários, mas muitos usando o mesmo modificador."
           }
         },
@@ -140,7 +140,7 @@
             "description": "O número de dias está fixo e não há nenhum verificador."
           },
           "maintainability": {
-            "note" : 100,
+            "note" : 66,
             "description": "62 % de acertos"
           }
         },

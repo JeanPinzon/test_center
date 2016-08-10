@@ -1,6 +1,44 @@
 (function () {
   'use strict';
 
+  var IMAGE_PATH_RED = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
+  var IMAGE_PATH_YELLOW = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
+  var IMAGE_PATH_GREEN = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
+
+  var setImageByNote = function(item){
+    if (item.note < 25) {
+      item.image = IMAGE_PATH_RED;
+    }
+    else if (item.note === 66) {
+      item.image = IMAGE_PATH_GREEN;
+    }
+    else if (item.note >= 25 && item.note < 75) {
+      item.image = IMAGE_PATH_YELLOW;
+    }
+    else {
+      item.image = IMAGE_PATH_GREEN;
+    }
+    return item;
+  };
+
+  var setImages = function(test) {
+    test.result.unitTests = setImageByNote(test.result.unitTests);
+    test.result.oo = setImageByNote(test.quality.oo);
+    test.result.intelligence = setImageByNote(test.quality.intelligence);
+    test.result.exceptionHandling = setImageByNote(test.quality.exceptionHandling);
+    test.result.duplicatedCode = setImageByNote(test.quality.duplicatedCode);
+    test.result.automatedTests = setImageByNote(test.quality.automatedTests);
+    test.result.inputFormat = setImageByNote(test.maintainability.inputFormat);
+    test.result.addOperators = setImageByNote(test.maintainability.addOperators);
+    test.result.alterOutput = setImageByNote(test.maintainability.alterOutput);
+    test.result.leapYear = setImageByNote(test.maintainability.leapYear);
+    test.result.maintainability = setImageByNote(test.maintainability.maintainability);
+    test.result.variables = setImageByNote(test.readability.variables);
+    test.result.methods = setImageByNote(test.readability.methods);
+    test.result.comments = setImageByNote(test.readability.comments);
+    return test;
+  };
+
   module.exports = function (app) {
 
     var controller = {};
@@ -44,269 +82,6 @@
 
       server.send(message, function(err, message) { console.log(err || message); });
     };
-
-    var validateImages = function(test) {
-
-      var unititTestsNote = test.result.unitTests.note;
-      var ooNote = test.quality.oo.note;
-      var intelligenceNote = test.quality.intelligence.note;
-      var exceptionHandlingNote = test.quality.exceptionHandling.note;
-      var duplicatedCodeNote = test.quality.duplicatedCode.note;
-      var automatedTestsNote = test.quality.automatedTests.note;
-      var inputFormatNote = test.maintainability.inputFormat.note;
-      var addOperatorsNote = test.maintainability.addOperators.note;
-      var alterOutputNote = test.maintainability.alterOutput.note;
-      var leapYearNote = test.maintainability.leapYear.note;
-      var maintainabilityNote = test.maintainability.maintainability.note;
-      var variablesNote = test.readability.variables.note;
-      var methodsNote = test.readability.methods.note;
-      var commentsNote = test.readability.comments.note;
-
-      var imagens = {};
-
-      //==========================================================================================
-      if(unititTestsNote == 0) {
-        imagens.unitTests = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (unititTestsNote == 25) {
-        imagens.unitTests = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (unititTestsNote == 50) {
-        imagens.unitTests = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (unititTestsNote == 75) {
-        imagens.unitTests = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (unititTestsNote == 100) {
-        imagens.unitTests = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      //==========================================================================================
-      if(ooNote == 0) {
-        imagens.oo = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (ooNote == 25) {
-        imagens.oo = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (ooNote == 50) {
-        imagens.oo = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (ooNote == 75) {
-        imagens.oo = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (ooNote == 100) {
-        imagens.oo = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      //==========================================================================================
-      if(intelligenceNote == 0) {
-        imagens.intelligence = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (intelligenceNote == 25) {
-        imagens.intelligence = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (intelligenceNote == 50) {
-        imagens.intelligence = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (intelligenceNote == 75) {
-        imagens.intelligence = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (intelligenceNote == 100) {
-        imagens.intelligence = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      //==========================================================================================
-      if(exceptionHandlingNote == 0) {
-        imagens.exceptionHandling = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (exceptionHandlingNote == 25) {
-        imagens.exceptionHandling = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (exceptionHandlingNote == 50) {
-        imagens.exceptionHandling = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (exceptionHandlingNote == 75) {
-        imagens.exceptionHandling = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (exceptionHandlingNote == 100) {
-        imagens.exceptionHandling = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      if(duplicatedCodeNote == 0) {
-        imagens.duplicatedCode = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (duplicatedCodeNote == 25) {
-        imagens.duplicatedCode = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (duplicatedCodeNote == 50) {
-        imagens.duplicatedCode = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (duplicatedCodeNote == 75) {
-        imagens.duplicatedCode = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (duplicatedCodeNote == 100) {
-        imagens.duplicatedCode = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      if(automatedTestsNote == 0) {
-        imagens.automatedTests = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (automatedTestsNote == 25) {
-        imagens.automatedTests = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (automatedTestsNote == 33) {
-        imagens.automatedTests = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (automatedTestsNote == 50) {
-        imagens.automatedTests = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (automatedTestsNote == 66) {
-        imagens.automatedTests = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (automatedTestsNote == 75) {
-        imagens.automatedTests = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (automatedTestsNote == 100) {
-        imagens.automatedTests = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      if(inputFormatNote == 0) {
-        imagens.inputFormat = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (inputFormatNote == 25) {
-        imagens.inputFormat = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (inputFormatNote == 50) {
-        imagens.inputFormat = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (inputFormatNote == 75) {
-        imagens.inputFormat = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (inputFormatNote == 100) {
-        imagens.inputFormat = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      if(addOperatorsNote == 0) {
-        imagens.addOperators = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (addOperatorsNote == 25) {
-        imagens.addOperators = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (addOperatorsNote == 50) {
-        imagens.addOperators = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (addOperatorsNote == 75) {
-        imagens.addOperators = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (addOperatorsNote == 100) {
-        imagens.addOperators = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      if(alterOutputNote == 0) {
-        imagens.alterOutput = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (alterOutputNote == 25) {
-        imagens.alterOutput = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (alterOutputNote == 50) {
-        imagens.alterOutput = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (alterOutputNote == 75) {
-        imagens.alterOutput = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (alterOutputNote == 100) {
-        imagens.alterOutput = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      if(leapYearNote == 0) {
-        imagens.leapYear = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (leapYearNote == 25) {
-        imagens.leapYear = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (leapYearNote == 50) {
-        imagens.leapYear = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (leapYearNote == 75) {
-        imagens.leapYear = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (leapYearNote == 100) {
-        imagens.leapYear = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-
-      //==========================================================================================
-      if(maintainabilityNote == 0) {
-        imagens.maintainability = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (maintainabilityNote == 25) {
-        imagens.maintainability = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (maintainabilityNote == 33) {
-        imagens.maintainability = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (maintainabilityNote == 50) {
-        imagens.maintainability = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (maintainabilityNote == 66) {
-        imagens.maintainability = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (maintainabilityNote == 75) {
-        imagens.maintainability = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (maintainabilityNote == 100) {
-        imagens.maintainability = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      if(variablesNote == 0) {
-        imagens.variables = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (variablesNote == 25) {
-        imagens.variables = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (variablesNote == 50) {
-        imagens.variables = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (variablesNote == 75) {
-        imagens.variables = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (variablesNote == 100) {
-        imagens.variables = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      if(methodsNote == 0) {
-        imagens.methods = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (methodsNote == 25) {
-        imagens.methods = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (methodsNote == 50) {
-        imagens.methods = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (methodsNote == 75) {
-        imagens.methods = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (methodsNote == 100) {
-        imagens.methods = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      if(commentsNote == 0) {
-        imagens.comments = "https://dl.dropboxusercontent.com/s/88eae559e0c9ru4/error.png?dl=0";
-      }
-      else if (commentsNote == 25) {
-        imagens.comments = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (commentsNote == 50) {
-        imagens.comments = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
-      }
-      else if (commentsNote == 75) {
-        imagens.comments = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      else if (commentsNote == 100) {
-        imagens.comments = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
-      }
-      //==========================================================================================
-      return imagens;
-    }
 
     var validate = function(test) {
       var score = calculateScore(test);
@@ -369,12 +144,11 @@
       var fs = require('fs');
       var html = fs.readFileSync('./templates/email/index.html', 'utf8');
       test.level = validate(test);
-      var urlImagens = validateImages(test);
-      console.log(urlImagens);
+      test = setImages(test);
+
       html = html.replace("[CANDIDATE_NAME]", test.name)
       .replace("[CANDIDATE_LEVEL]", test.level)
 
-      // TODO: Populate the tests results.
       .replace("[UNIT_TESTS.NOTE]", test.level)
       .replace("[UNIT_TESTS.DESCRIPTION]", test.level)
 
@@ -407,19 +181,19 @@
       .replace("[COMMENTS.NOTE]", test.readability.comments.note)
       .replace("[COMMENTS.DESCRIPTION]", test.readability.comments.description)
 
-      .replace("[OO.STATUS]", urlImagens.oo)
-      .replace("[INTELLIGENCE.STATUS]", urlImagens.intelligence)
-      .replace("[EXCEPTION_HANDLIND.STATUS]", urlImagens.exceptionHandling)
-      .replace("[DUPLICATED_CODE.STATUS]", urlImagens.duplicatedCode)
-      .replace("[AUTOMATED_TESTS.STATUS]", urlImagens.automatedTests)
-      .replace("[INPUT_FORMAT.STATUS]", urlImagens.inputFormat)
-      .replace("[ADD_OPERATORS.STATUS]", urlImagens.addOperators)
-      .replace("[ALTER_OUTPUT.STATUS]", urlImagens.alterOutput)
-      .replace("[LEAP_YEAR.STATUS]", urlImagens.leapYear)
-      .replace("[MAINTAINABILITY.STATUS]", urlImagens.maintainability)
-      .replace("[VARIABLES.STATUS]", urlImagens.variables)
-      .replace("[METHODS.STATUS]", urlImagens.methods)
-      .replace("[COMMENTS.STATUS]", urlImagens.comments);
+      .replace("[OO.STATUS]", test.quality.oo.image)
+      .replace("[INTELLIGENCE.STATUS]", test.quality.intelligence.image)
+      .replace("[EXCEPTION_HANDLIND.STATUS]", test.quality.exceptionHandling.image)
+      .replace("[DUPLICATED_CODE.STATUS]", test.quality.duplicatedCode.image)
+      .replace("[AUTOMATED_TESTS.STATUS]", test.quality.automatedTests.image)
+      .replace("[INPUT_FORMAT.STATUS]", test.maintainability.inputFormat.image)
+      .replace("[ADD_OPERATORS.STATUS]", test.maintainability.addOperators.image)
+      .replace("[ALTER_OUTPUT.STATUS]", test.maintainability.alterOutput.image)
+      .replace("[LEAP_YEAR.STATUS]", test.maintainability.leapYear.image)
+      .replace("[MAINTAINABILITY.STATUS]", test.maintainability.maintainability.image)
+      .replace("[VARIABLES.STATUS]", test.readability.variables.image)
+      .replace("[METHODS.STATUS]", test.readability.methods.image)
+      .replace("[COMMENTS.STATUS]", test.readability.comments.image);
 
 
       return html;
