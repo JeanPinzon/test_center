@@ -32,7 +32,7 @@
   var plenos2 = [
     "https://dl.dropboxusercontent.com/s/3500xx2hqqw9zwt/BELLSPROUT.png?dl=0",
     "https://dl.dropboxusercontent.com/s/zmk96td6l7elr54/JOLTEON.png?dl=0",
-    "https://dl.dropboxusercontent.com/s/3500xx2hqqw9zwt/BELLSPROUT.png?dl=0"
+    "https://dl.dropboxusercontent.com/s/m5vrzb5s0jwu4je/MEOWTH.png?dl=0"
   ];
 
   var plenos3 = [
@@ -108,7 +108,7 @@
       var email = require("emailjs");
       var server = email.server.connect({
         user: "rafaeldeoliveirabenetti@gmail.com",
-        password: "mmm",
+        password: "orrardgdrdr*google",
         host: "smtp.gmail.com",
         ssl: true
       });
@@ -128,33 +128,38 @@
     };
 
     var validate = function(test) {
-      var score = calculateScore(test);
 
-      if (score < 2) {
+      test.score = calculateScore(test);
+
+      if (test.levelManuallyChanged) {
+        test.score = test.level;
+      }
+
+      if (test.score < 2) {
         test.level = "Júnior 1";
         test.image = getRandomImageFromArray(juniors);
       }
-      else if (score >= 2 && score < 3) {
+      else if (test.score >= 2 && test.score < 3) {
         test.level = "Júnior 2";
         test.image = getRandomImageFromArray(juniors2);
       }
-      else if (score >= 3 && score < 4) {
+      else if (test.score >= 3 && test.score < 4) {
         test.level = "Júnior 3";
         test.image = getRandomImageFromArray(juniors3);
       }
-      else if (score >= 4 && score < 5) {
+      else if (test.score >= 4 && test.score < 5) {
         test.level = "Pleno 1";
         test.image = getRandomImageFromArray(plenos);
       }
-      else if (score >= 5 && score < 6) {
+      else if (test.score >= 5 && test.score < 6) {
         test.level = "Pleno 2";
         test.image = getRandomImageFromArray(plenos2);
       }
-      else if (score >= 6 && score < 7) {
+      else if (test.score >= 6 && test.score < 7) {
         test.level = "Pleno 3";
         test.image = getRandomImageFromArray(plenos3);
       }
-      else if (score >= 7) {
+      else if (test.score >= 7) {
         test.level = "Sênior";
         test.image = getRandomImageFromArray(seniors);
       }

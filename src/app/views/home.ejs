@@ -272,7 +272,7 @@
               <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm="">
                   <label>Nível</label>
-                  <md-select ng-model="homeCtrl.test.level">
+                  <md-select ng-model="homeCtrl.test.level" ng-change="homeCtrl.setLevelManuallyChanged()">
                     <md-option ng-repeat="option in homeCtrl.levels" value="{{option.value}}">
                       {{option.text}}
                     </md-option>
@@ -295,11 +295,11 @@
             </md-content>
           </md-tab>
 
-          <md-tab label="Concluir" ng-disabled="!homeCtrl.canPreview()">
+          <md-tab label="Concluir" ng-disabled="!homeCtrl.canFinish()">
             <md-content class="md-padding">
               <div class="jumbotron">
                 <h4>Quase lá!</h4>
-                <p>Aqui você confirma sua correção. Ao finalizar, o resultado será enviado por e-mail para todos os participantes do processo de seleção. Se necessário você pode revisar sua correção.</p>                
+                <p>Aqui você confirma sua correção. Ao finalizar, o resultado será enviado por e-mail para todos os participantes do processo de seleção. Se necessário você pode revisar sua correção.</p>
                 <md-button class="md-raised md-cornered" ng-click="homeCtrl.sendTest()">Finalizar</md-button>
               </div>
             </md-content>

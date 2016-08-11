@@ -69,6 +69,7 @@
 
     self.preview = function () {
       testService.preview(self.test);
+      self.test.isViewed = true;
     };
 
     self.getLevelByDescription = function(description){
@@ -86,6 +87,14 @@
 
     self.canPreview = function(){
       return $scope.testForm.$valid && true;//!!$scope.testForm.feedback.$modelValue;
+    };
+
+    self.canFinish= function(){
+      return $scope.testForm.$valid && self.test.isViewed;
+    };
+
+    self.setLevelManuallyChanged = function(){
+      self.test.levelManuallyChanged = true;
     };
 
     self.configureFakeTest = function () {
