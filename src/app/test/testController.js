@@ -5,6 +5,50 @@
   var IMAGE_PATH_YELLOW = "https://dl.dropboxusercontent.com/s/8b1ye3yos0nqsct/alert.png?dl=0";
   var IMAGE_PATH_GREEN = "https://dl.dropboxusercontent.com/s/s5wwi2mcmwdv7f4/ok.png?dl=0";
 
+  var juniors = [
+    "https://dl.dropboxusercontent.com/s/fkyohi594ndd59e/PIDGEY.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/0x4sku5sgwgcomv/RATATA.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/2mqwt92flc5vfsh/WEEDLE.png?dl=0"
+  ];
+
+  var juniors2 = [
+    "https://dl.dropboxusercontent.com/s/xlc5ovkt3mazmul/CATERPIE.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/hxdge50u83wal8d/KAKUNA.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/c0wddiv08usxaym/ZUBAT.png?dl=0"
+  ];
+
+  var juniors3 = [
+    "https://dl.dropboxusercontent.com/s/5qiudz8dz368phf/EKANS.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/8ehub66uig6e9jr/POLIWAG.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/j3tzcd9jcry02di/SPEAROW.png?dl=0"
+  ];
+
+  var plenos = [
+    "https://dl.dropboxusercontent.com/s/d90j139a2w88xko/EEVEE.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/qx9gqidob37pq0p/GOLBAT.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/cpftw2lobvt3w29/PSYDUCK.png?dl=0"
+  ];
+
+  var plenos2 = [
+    "https://dl.dropboxusercontent.com/s/3500xx2hqqw9zwt/BELLSPROUT.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/zmk96td6l7elr54/JOLTEON.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/3500xx2hqqw9zwt/BELLSPROUT.png?dl=0"
+  ];
+
+  var plenos3 = [
+    "https://dl.dropboxusercontent.com/s/545g5mf831pqrul/CHARMANDER.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/sgyen5kgvp0q4b7/BULBASAUR.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/p6fy2udodnr2il9/SQUIRTLE.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/a45fi7ynt9lq05g/PIKACHU.png?dl=0"
+  ];
+
+  var seniors = [
+    "https://dl.dropboxusercontent.com/s/pcbelm7plzoruo5/CHARIZARD.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/9uhvgyl27i6mkyk/DRAGONITE.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/48zzdfd9v97ebqa/GYARADOS.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/5g4cta933m6md0n/MEWTWO.png?dl=0"
+  ];
+
   var setImageByNote = function(item){
     if (item.note < 25) {
       item.image = IMAGE_PATH_RED;
@@ -86,31 +130,40 @@
     var validate = function(test) {
       var score = calculateScore(test);
 
-      var level;
-
       if (score < 2) {
-        level = "Júnior 1";
+        test.level = "Júnior 1";
+        test.image = getRandomImageFromArray(juniors);
       }
       else if (score >= 2 && score < 3) {
-        level = "Júnior 2";
+        test.level = "Júnior 2";
+        test.image = getRandomImageFromArray(juniors2);
       }
       else if (score >= 3 && score < 4) {
-        level = "Júnior 3";
+        test.level = "Júnior 3";
+        test.image = getRandomImageFromArray(juniors3);
       }
       else if (score >= 4 && score < 5) {
-        level = "Pleno 1";
+        test.level = "Pleno 1";
+        test.image = getRandomImageFromArray(plenos);
       }
       else if (score >= 5 && score < 6) {
-        level = "Pleno 2";
+        test.level = "Pleno 2";
+        test.image = getRandomImageFromArray(plenos2);
       }
       else if (score >= 6 && score < 7) {
-        level = "Pleno 3";
+        test.level = "Pleno 3";
+        test.image = getRandomImageFromArray(plenos3);
       }
       else if (score >= 7) {
-        level = "Sênior";
+        test.level = "Sênior";
+        test.image = getRandomImageFromArray(seniors);
       }
 
-      return level;
+      return test;
+    };
+
+    var getRandomImageFromArray = function(array){
+      return array[Math.floor(Math.random()*array.length)];
     };
 
     var getValueByOption = function(total, percent){
@@ -143,11 +196,13 @@
 
       var fs = require('fs');
       var html = fs.readFileSync('./templates/email/index.html', 'utf8');
-      test.level = validate(test);
+
+      test = validate(test);
       test = setImages(test);
 
       html = html.replace("[CANDIDATE_NAME]", test.name)
       .replace("[CANDIDATE_LEVEL]", test.level)
+      .replace("[CANDIDATE_LEVEL_IMAGE]", test.image)
 
       .replace("[UNIT_TESTS.NOTE]", test.level)
       .replace("[UNIT_TESTS.DESCRIPTION]", test.level)
