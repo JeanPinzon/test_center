@@ -285,11 +285,7 @@
                 </md-input-container>
               </div>
 
-              <div layout-gt-sm="row" ng-show="homeCtrl.test.levelManuallyChanged" >
-                <md-input-container class="md-block" flex-gt-sm="">
-                  <md-button class="md-raised md-cornered" ng-click="homeCtrl.recalculateLevel()">Recalcular Nível</md-button>
-                </md-input-container>
-              </div>
+              <md-button ng-show="homeCtrl.test.levelManuallyChanged" class="md-raised md-cornered" ng-click="homeCtrl.recalculateLevel()">Recalcular Nível</md-button>
             </md-content>
           </md-tab>
 

@@ -86,11 +86,12 @@
     };
 
     self.canPreview = function(){
-      return $scope.testForm.$valid && true;//!!$scope.testForm.feedback.$modelValue;
+      return $scope.testForm.$valid && !!$scope.testForm.feedback && !!$scope.testForm.feedback.$modelValue;
     };
 
     self.canFinish= function(){
-      return $scope.testForm.$valid && !!self.test && self.test.isViewed;
+
+      return self.canPreview() && !!self.test && self.test.isViewed;
     };
 
     self.setLevelManuallyChanged = function(){
