@@ -90,11 +90,16 @@
     };
 
     self.canFinish= function(){
-      return $scope.testForm.$valid && self.test.isViewed;
+      return $scope.testForm.$valid && !!self.test && self.test.isViewed;
     };
 
     self.setLevelManuallyChanged = function(){
       self.test.levelManuallyChanged = true;
+    };
+
+    self.recalculateLevel = function(){
+      self.test.levelManuallyChanged = false;
+      self.getLevel();
     };
 
     self.configureFakeTest = function () {

@@ -284,6 +284,12 @@
                   <textarea name="feedback" ng-model="homeCtrl.test.feedback" md-maxlength="100" rows="3"></textarea>
                 </md-input-container>
               </div>
+
+              <div layout-gt-sm="row" ng-show="homeCtrl.test.levelManuallyChanged" >
+                <md-input-container class="md-block" flex-gt-sm="">
+                  <md-button class="md-raised md-cornered" ng-click="homeCtrl.recalculateLevel()">Recalcular Nível</md-button>
+                </md-input-container>
+              </div>
             </md-content>
           </md-tab>
 

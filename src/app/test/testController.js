@@ -99,9 +99,8 @@
     };
 
     controller.getLevel = function(req, res) {
-      var level = validate(req.body);
-      console.log(level);
-      res.json({ ok: true, level: level });
+      var test = validate(req.body);
+      res.json({ ok: true, level: test.level });
     };
 
     var sendEmail = function(result) {
