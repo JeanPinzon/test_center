@@ -67,7 +67,25 @@
       testService.sendTest(self.test);
     };
 
+    self.getTextValues = function () {
+      self.test.result.unitTests.text = $('#unitTestsText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.quality.oo.text = $('#qualityText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.quality.intelligence.text = $('#intelligenceText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.quality.exceptionHandling.text = $("#exceptionHandlingText").text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.quality.duplicatedCode.text = $("#duplicatedCodeText").text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.quality.automatedTests.text = $('#automatedTestsText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.maintainability.inputFormat.text = $('#inputFormatText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.maintainability.addOperators.text = $('#addOperatorsText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.maintainability.alterOutput.text = $('#alterOutputText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.maintainability.leapYear.text = $('#leapYearText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.maintainability.maintainability.text = $('#maintainabilityText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.readability.variables.text = $('#variablesText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.readability.methods.text = $('#methodsText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.readability.comments.text = $('#commentsText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+    }
+
     self.preview = function () {
+      self.getTextValues();
       testService.preview(self.test);
       self.test.isViewed = true;
     };
@@ -90,7 +108,7 @@
     };
 
     self.canFinish= function(){
-      return $scope.testForm.$valid && self.test.isViewed;
+      return $scope.testForm.$valid && !!self.test && self.test.isViewed;
     };
 
     self.setLevelManuallyChanged = function(){
@@ -100,53 +118,53 @@
     self.configureFakeTest = function () {
       self.test =
       {
-        "name": "Um Dois Três de Oliveira Quatro",
+        "name": "Um Dois TrÃªs de Oliveira Quatro",
         "level": 4,
         "complete": false,
         "result": {
           "unitTests": {
             "note" : 66,
-            "description": "Dividiu as operações em alguns métodos, porém executa de forma procedural."
+            "description": "Dividiu as operaÃ§Ãµes em alguns mÃ©todos, porÃ©m executa de forma procedural."
           }
         },
         "quality": {
           "oo": {
             "note" : 0,
-            "description": "Dividiu as operações em alguns métodos, porém executa de forma procedural."
+            "description": "Dividiu as operaÃ§Ãµes em alguns mÃ©todos, porÃ©m executa de forma procedural."
           },
           "intelligence": {
             "note" : 25,
-            "description": "O código inteiro possui fluxos bem distintos para adição e subtração, mas separou bem o código."
+            "description": "O cÃ³digo inteiro possui fluxos bem distintos para adiÃ§Ã£o e subtraÃ§Ã£o, mas separou bem o cÃ³digo."
           },
           "exceptionHandling": {
             "note" : 50,
-            "description": "Valida o operador e o formato da data informado, mas não impede número de dias, meses e anos inválidos."
+            "description": "Valida o operador e o formato da data informado, mas nÃ£o impede nÃºmero de dias, meses e anos invÃ¡lidos."
           },
           "duplicatedCode": {
             "note" : 75,
-            "description": "O código não se repete, bem encapsulado e separado."
+            "description": "O cÃ³digo nÃ£o se repete, bem encapsulado e separado."
           },
           "automatedTests": {
             "note" : 33,
-            "description": "Escreveu 10 testes unitários, mas muitos usando o mesmo modificador."
+            "description": "Escreveu 10 testes unitÃ¡rios, mas muitos usando o mesmo modificador."
           }
         },
         "maintainability": {
           "inputFormat": {
             "note" : 100,
-            "description": "Local único e está simples, mas não validado."
+            "description": "Local Ãºnico e estÃ¡ simples, mas nÃ£o validado."
           },
           "addOperators": {
             "note" : 100,
-            "description": "Seria necessário nova implementação de forma completa."
+            "description": "Seria necessÃ¡rio nova implementaÃ§Ã£o de forma completa."
           },
           "alterOutput": {
             "note" : 100,
-            "description": "Encapsula a formatação em um método."
+            "description": "Encapsula a formataÃ§Ã£o em um mÃ©todo."
           },
           "leapYear": {
             "note" : 100,
-            "description": "O número de dias está fixo e não há nenhum verificador."
+            "description": "O nÃºmero de dias estÃ¡ fixo e nÃ£o hÃ¡ nenhum verificador."
           },
           "maintainability": {
             "note" : 66,
@@ -156,7 +174,7 @@
         "readability": {
           "variables": {
             "note" : 100,
-            "description": "Os nomes das variáveis são bons e fazem o que propõe."
+            "description": "Os nomes das variÃ¡veis sÃ£o bons e fazem o que propÃµe."
           },
           "methods": {
             "note" : 100,
@@ -164,12 +182,13 @@
           },
           "comments": {
             "note" : 100,
-            "description": "Poderia ser muito melhor a separação e reaproveitamento."
+            "description": "Poderia ser muito melhor a separaÃ§Ã£o e reaproveitamento."
           }
         }
       };
     };
     self.configureFakeTest();
+
   };
 
   angular.module('testCenter').controller('homeController', ['testService', '$filter', '$scope', homeController]);

@@ -34,7 +34,7 @@
                   <label>Resultado dos testes</label>
                   <md-select ng-model="homeCtrl.test.result.unitTests.note" required>
                     <md-option ng-repeat="option in homeCtrl.automatedTestsOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="unitTestsText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -54,7 +54,7 @@
                   <label>Orientação a objetos</label>
                   <md-select ng-model="homeCtrl.test.quality.oo.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="qualityText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -70,7 +70,7 @@
                   <label>Inteligência</label>
                   <md-select ng-model="homeCtrl.test.quality.intelligence.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="intelligenceText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -86,7 +86,7 @@
                   <label>Tratamento de Exceções</label>
                   <md-select ng-model="homeCtrl.test.quality.exceptionHandling.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="exceptionHandlingText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -102,7 +102,7 @@
                   <label>Repetição de código</label>
                   <md-select ng-model="homeCtrl.test.quality.duplicatedCode.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="duplicatedCodeText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -118,7 +118,7 @@
                   <label>Testes automatizados</label>
                   <md-select ng-model="homeCtrl.test.quality.automatedTests.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="automatedTestsText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -138,7 +138,7 @@
                   <label>Alterar formato de entrada</label>
                   <md-select ng-model="homeCtrl.test.maintainability.inputFormat.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="inputFormatText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -154,7 +154,7 @@
                   <label>Adicionar operações</label>
                   <md-select ng-model="homeCtrl.test.maintainability.addOperators.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="addOperatorsText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -170,7 +170,7 @@
                   <label>Alterar o formato de saída</label>
                   <md-select ng-model="homeCtrl.test.maintainability.alterOutput.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="alterOutputText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -186,7 +186,7 @@
                   <label>Ano bissexto</label>
                   <md-select ng-model="homeCtrl.test.maintainability.leapYear.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="leapYearText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -202,7 +202,7 @@
                   <label>Índice de Manutenabilidade</label>
                   <md-select ng-model="homeCtrl.test.maintainability.maintainability.note" required>
                     <md-option ng-repeat="option in homeCtrl.automatedTestsOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="maintainabilityText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -222,7 +222,7 @@
                   <label>Variaveis</label>
                   <md-select ng-model="homeCtrl.test.readability.variables.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="variablesText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -238,7 +238,7 @@
                   <label>Métodos</label>
                   <md-select ng-model="homeCtrl.test.readability.methods.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="methodsText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
@@ -254,7 +254,7 @@
                   <label>Comentários</label>
                   <md-select ng-model="homeCtrl.test.readability.comments.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      {{option.text}}
+                      <span id="commentsText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
