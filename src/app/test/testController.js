@@ -106,8 +106,8 @@
     var sendEmail = function(result) {
       var email = require("emailjs");
       var server = email.server.connect({
-        user: "rafaeldeoliveirabenetti@gmail.com",
-        password: "mmm",
+        user: process.env.DB_EMAIL_USER,
+        password: process.env.DB_EMAIL_PASSWORD,
         host: "smtp.gmail.com",
         ssl: true
       });
