@@ -1,3 +1,5 @@
+
+
 body {
 	font-size: 14px;
 }
@@ -16,6 +18,50 @@ iframe#preview {
 	min-height: 1000px;
 	width: 100%;
 }
+
+/**==============**/
+/** ========================== IMPORT FONTS ================================ **/
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../fonts/Montserrat-Regular.otf');
+}
+/** ========================== IMPORT FONTS =END============================ **/
+#pageHeader {
+	background-image: url(http://cwisoftware.github.io/eventos/dist/img/ev-bg.jpg);
+	border-bottom: 3px solid #fa9e23;
+	height: 200px;
+	text-align: center;
+}
+#logo {
+	border: solid 3px pink;
+}
+#appCompany{
+	position: relative;
+	font-family: 'Montserrat';
+	font-size: 65px;
+	font-weight: bold;
+	color: #fa9e23;
+	text-transform: uppercase;
+	top: 100px;
+}
+#appTitle {
+	position: relative;
+	font-family: 'Montserrat';
+	font-size: 65px;
+	color: #fff;
+	text-transform: uppercase;
+	top: 100px;
+}
+md-tabs.md-default-theme md-ink-bar, md-tabs md-ink-bar {
+	background: rgb(250,158,35);
+}
+md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.md-default-theme .md-tab.md-active md-icon, md-tabs .md-tab.md-active md-icon, md-tabs.md-default-theme .md-tab.md-focused, md-tabs .md-tab.md-focused, md-tabs.md-default-theme .md-tab.md-focused md-icon, md-tabs .md-tab.md-focused md-icon {
+	font-weight: bold;
+	color: #fa9e23;
+}
+
+/**==============**/
+
 
 #endTab .jumbotron {
 	padding: 10px 20px 30px 20px;

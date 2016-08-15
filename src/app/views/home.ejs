@@ -8,9 +8,11 @@
 <body ng-controller="homeController as homeCtrl">
 
   <header>
-    <div class="row">
+    <div class="row" id="pageHeader">
       <div class="col-md-8">
-        <h3>Test Center</h3>
+        <img id ="logo" src="" alt="LOGO" />
+        <text id="appCompany">CWI</text>
+        <text id="appTitle">Test Center</text>
       </div>
     </div>
   </header>
@@ -32,16 +34,16 @@
               <div layout-gt-sm="row">
                 <md-input-container class="md-block" flex-gt-sm="">
                   <label>Resultado dos testes</label>
-                  <md-select ng-model="homeCtrl.test.result.unitTests.note" required>
+                  <md-select id="unitTestsText" ng-model="homeCtrl.test.result.unitTests.note" required>
                     <md-option ng-repeat="option in homeCtrl.automatedTestsOptions" value="{{option.value}}">
-                      <span id="unitTestsText" value="{{option.text}}">{{option.text}}</span>
+                      <span value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex-gt-sm="">
                   <label>Descrição</label>
-                  <textarea ng-model="homeCtrl.test.result.unitTests.description" md-maxlength="100" rows="3" required></textarea>
+                  <textarea id="labelTest"  ng-model="homeCtrl.test.result.unitTests.description" md-maxlength="100" rows="3" required></textarea>
                 </md-input-container>
               </div>
             </md-content>
@@ -70,7 +72,7 @@
                   <label>Inteligência</label>
                   <md-select ng-model="homeCtrl.test.quality.intelligence.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      <span id="intelligenceText" value="{{option.text}}">{{option.text}}</span>
+                      <span value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
