@@ -108,7 +108,6 @@
     };
 
     self.canFinish= function(){
-
       return self.canPreview() && !!self.test && self.test.isViewed;
     };
 

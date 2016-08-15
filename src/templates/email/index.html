@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Template de e-mail</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
     <style type="text/css">
       /* base */
       @font-face {
@@ -11,7 +12,7 @@
       }
 
       body {
-        font-family: 'ralewayMedium', sans-serif;
+        font-family: 'Raleway', sans-serif;
         box-sizing: border-box;
         color: #212121;
       }
@@ -19,86 +20,95 @@
       header {
         padding: 10px;
       }
-      header h1{
-        font-size: 3em;
-        color: #34495E;
-        margin: 0px;
-      }
-      header h3 {
-        margin: 40px 0px 0px 0px;
+
+      h3 {
+        margin: 0px 0px 0px 0px;
+        padding-top: 30px;
       }
 
       footer {
         margin-top: 20px;
         text-align: center;
       }
+
+      h1{
+        font-size: 3em;
+        color: #34495E;
+        margin: 0px;
+      }
+
+      hr {
+        opacity: 0.2;
+      }
     </style>
   </head>
-  <body>
+  <body id="previewContent">
 
     <header>
       <div>
-        <img style="height: 102px; max-height: 103px;" align="right" src="[CANDIDATE_LEVEL_IMAGE]" alt="Imagem Qualificação" />
+        <img style="height: 102px; max-height: 103px; margin-top: -35;" align="right" src="[CANDIDATE_LEVEL_IMAGE]" alt="Imagem Qualificação" />
       </div>
-      <div>
+      <div style="border-bottom: solid 3px #f9ae4c;">
         <h3>[CANDIDATE_NAME]</h4>
         <h1>Prova Técnica .NET / [CANDIDATE_LEVEL]</h1>
-        <div style="background-color: #f9ae4c; width: 100%; height: 3px;"></div>
       </div>
     </header>
 
     <div class="container">
+      <div style="padding-left: 10px;text-align: justify;">
+        <p>[CANDIDATE_FEEDBACK]</p>
+      </div>
       <div class="title">
         <h2 style="padding: 10px; margin: 4px 0px 0px 0px; font-size: 1.2em;">Qualidade</h2>
       </div>
       <div class="itens">
         <div style="padding: 5px;">
-          <img src="[OO.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[OO.STATUS]" alt="Imagem de alerta"align="left" />
           <div>
-              <label style="font-weight: 700;">Orientação a Objetos</label> /
+              <label><b>&nbsp; Orientação a Objetos</b></label> /
               <label>[OO.NOTE]</label> /
               <label>[OO.DESCRIPTION]</label>
-              <hr style="opacity: 0.2 !important;">
+              <hr>
           </div>
         </div>
 
         <div style="padding: 5px;">
-          <img src="[INTELLIGENCE.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[INTELLIGENCE.STATUS]" alt="Imagem de alerta"  align="left" />
           <div>
-              <label style="font-weight: 700;">Inteligência</label> /
+              <label><b>&nbsp; Inteligência</b></label> /
               <label>[INTELLIGENCE.NOTE]</label> /
               <label>[INTELLIGENCE.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
 
         <div style="padding: 5px;">
-          <img src="[EXCEPTION_HANDLIND.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[EXCEPTION_HANDLIND.STATUS]" alt="Imagem de alerta"  align="left" />
           <div>
-              <label style="font-weight: 700;">Tratamento de Exceções</label> /
+              <label><b>&nbsp; Tratamento de Exceções</b></label> /
               <label>[EXCEPTION_HANDLIND.NOTE]</label> /
               <label>[EXCEPTION_HANDLIND.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
 
         <div style="padding: 5px;">
-          <img src="[DUPLICATED_CODE.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[DUPLICATED_CODE.STATUS]" alt="Imagem de alerta"  align="left" />
           <div>
-              <label style="font-weight: 700;">Repetição de código</label> /
+              <label><b>&nbsp; Repetição de código</b></label> /
               <label>[DUPLICATED_CODE.NOTE]</label> /
               <label>[DUPLICATED_CODE.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
 
         <div style="padding: 5px;">
-          <img src="[AUTOMATED_TESTS.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[AUTOMATED_TESTS.STATUS]" alt="Imagem de alerta"  align="left" />
           <div>
-              <label style="font-weight: 700;">Testes automatizados</label> /
+              <label><b>&nbsp; Testes automatizados</b></label> /
               <label>[AUTOMATED_TESTS.NOTE]</label> /
               <label>[AUTOMATED_TESTS.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
     </div>
@@ -109,52 +119,52 @@
       </div>
       <div class="itens">
         <div style="padding: 5px;">
-          <img src="[INPUT_FORMAT.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[INPUT_FORMAT.STATUS]" alt="Imagem de alerta"  align="left" />
           <div>
-              <label style="font-weight: 700;">Alterar formato de entrada</label> /
+              <label><b>&nbsp; Alterar formato de entrada</b></label> /
               <label>[INPUT_FORMAT.NOTE]</label> /
               <label>[INPUT_FORMAT.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
 
         <div style="padding: 5px;">
-          <img src="[ADD_OPERATORS.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[ADD_OPERATORS.STATUS]" alt="Imagem de alerta"  align="left" />
           <div>
-              <label style="font-weight: 700;">Adicionar operações</label> /
+              <label><b>&nbsp; Adicionar operações</b></label> /
               <label>[ADD_OPERATORS.NOTE]</label> /
               <label>[ADD_OPERATORS.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
 
         <div style="padding: 5px;">
-          <img src="[ALTER_OUTPUT.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[ALTER_OUTPUT.STATUS]" alt="Imagem de alerta"  align="left" />
           <div>
-              <label style="font-weight: 700;">Alterar o formato de saída</label> /
+              <label><b>&nbsp; Alterar o formato de saída</b></label> /
               <label>[ALTER_OUTPUT.NOTE]</label> /
               <label>[ALTER_OUTPUT.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
 
         <div style="padding: 5px;">
-          <img src="[LEAP_YEAR.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[LEAP_YEAR.STATUS]" alt="Imagem de alerta"  align="left" />
           <div>
-              <label style="font-weight: 700;">Ano bissexto</label> /
+              <label><b>&nbsp; Ano bissexto</b></label> /
               <label>[LEAP_YEAR.NOTE]</label> /
               <label>[LEAP_YEAR.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
 
         <div style="padding: 5px;">
-          <img src="[MAINTAINABILITY.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[MAINTAINABILITY.STATUS]" alt="Imagem de alerta"  align="left" />
           <div>
-              <label style="font-weight: 700;">Índice de Manutenabilidade</label> /
+              <label><b>&nbsp; Índice de Manutenabilidade</b></label> /
               <label>[MAINTAINABILITY.NOTE]</label> /
               <label>[MAINTAINABILITY.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
     </div>
@@ -165,32 +175,32 @@
       </div>
       <div class="itens">
         <div style="padding: 5px;">
-          <img src="[VARIABLES.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[VARIABLES.STATUS]" alt="Imagem de alerta"  align="left" />
           <div>
-              <label style="font-weight: 700;">Variáveis</label> /
+              <label><b>&nbsp; Variáveis</b></label> /
               <label>[VARIABLES.NOTE]</label> /
               <label>[VARIABLES.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
 
         <div style="padding: 5px;">
-          <img src="[METHODS.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[METHODS.STATUS]" alt="Imagem de alerta"  align="left" />
           <div>
-              <label style="font-weight: 700;">Métodos</label> /
+              <label><b>&nbsp; Métodos</b></label> /
               <label>[METHODS.NOTE]</label>
               <label>[METHODS.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
 
         <div style="padding: 5px;">
-          <img src="[COMMENTS.STATUS]" alt="Imagem de alerta" style="padding-right: 5px;" align="left" />
+          <img src="[COMMENTS.STATUS]" alt="Imagem de alerta" align="left" />
           <div>
-              <label style="font-weight: 700;">Comentários</label> /
+              <label><b>&nbsp; Comentários</b></label> /
               <label>[COMMENTS.NOTE]</label> /
               <label>[COMMENTS.DESCRIPTION]</label>
-              <hr style="opacity: 0.2;">
+              <hr>
           </div>
         </div>
     </div>

@@ -90,24 +90,24 @@
     controller.send = function (req, res) {
       var html = buildResult(req.body);
       sendEmail(html);
-      res.json({ ok: true, html: html });
+      res.json({ valid: true, html: html });
     };
 
     controller.preview = function (req, res) {
       var html = buildResult(req.body);
-      res.json({ ok: true, html: html });
+      res.json({ valid: true, html: html });
     };
 
     controller.getLevel = function(req, res) {
       var test = validate(req.body);
-      res.json({ ok: true, level: test.level });
+      res.json({ valid: true, level: test.level });
     };
 
     var sendEmail = function(result) {
       var email = require("emailjs");
       var server = email.server.connect({
-        user: "rafaeldeoliveirabenetti@gmail.com",
-        password: "mmm",
+        user: process.env.DB_EMAIL_USER,
+        password: process.env.DB_EMAIL_PASSWORD,
         host: "smtp.gmail.com",
         ssl: true
       });
@@ -207,6 +207,7 @@
       html = html.replace("[CANDIDATE_NAME]", test.name)
       .replace("[CANDIDATE_LEVEL]", test.level)
       .replace("[CANDIDATE_LEVEL_IMAGE]", test.image)
+      .replace("[CANDIDATE_FEEDBACK]", test.feedback)
 
       .replace("[UNIT_TESTS.NOTE]", test.level)
       .replace("[UNIT_TESTS.DESCRIPTION]", test.level)
