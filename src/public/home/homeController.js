@@ -87,7 +87,7 @@
     self.preview = function () {
       self.getTextValues();
       testService.preview(self.test);
-      self.test.isViewed = true;      
+      self.test.isViewed = true;
     };
 
     self.getLevelByDescription = function(description){

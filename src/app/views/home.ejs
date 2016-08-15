@@ -117,7 +117,7 @@
                 <md-input-container class="md-block" flex-gt-sm="">
                   <label>Testes automatizados</label>
                   <md-select ng-model="homeCtrl.test.quality.automatedTests.note" required>
-                    <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
+                    <md-option ng-repeat="option in homeCtrl.automatedTestsOptions" value="{{option.value}}">
                       <span id="automatedTestsText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
