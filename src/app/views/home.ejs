@@ -281,7 +281,7 @@
 
                 <md-input-container class="md-block" flex-gt-sm="">
                   <label>Observação Final</label>
-                  <textarea name="feedback" ng-model="homeCtrl.test.feedback" md-maxlength="100" rows="3"></textarea>
+                  <textarea name="feedback" ng-model="homeCtrl.test.feedback" maxlength="2000" md-maxlength="2000" rows="10"></textarea>
                 </md-input-container>
               </div>
 
@@ -292,7 +292,7 @@
           <md-tab label="Visualizar" ng-disabled="!homeCtrl.canPreview()" md-on-select="homeCtrl.preview()">
             <md-content class="md-padding">
               <div class="container">
-                <iframe id="preview" style="display: none"></iframe>
+                <iframe id="preview" style="display: none" frameborder="0" allowfullscreen onload="resizeIframe()"></iframe>
               </div>
             </md-content>
           </md-tab>
@@ -311,7 +311,12 @@
       </form>
     </md-content>
   </div>
-
+  <script type="text/javascript">
+    var resizeIframe = function(){
+      var height = $(document.getElementById('preview').contentWindow.document.getElementById('previewContent')).height();
+      $('iframe').css('height', height + 20);
+    };
+  </script>
   <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 

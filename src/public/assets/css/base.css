@@ -13,7 +13,6 @@ h3 {
 iframe#preview {
 	border: 0px !important;
 	margin-left: -15px!important;
-	min-height: 1000px;
 	width: 100%;
 }
 
