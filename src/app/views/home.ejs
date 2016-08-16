@@ -78,7 +78,7 @@
                   <label>Inteligência</label>
                   <md-select ng-model="homeCtrl.test.quality.intelligence.note" required>
                     <md-option ng-repeat="option in homeCtrl.defaultOptions" value="{{option.value}}">
-                      <span value="{{option.text}}">{{option.text}}</span>
+                      <span id="intelligenceText" value="{{option.text}}">{{option.text}}</span>
                     </md-option>
                   </md-select>
                 </md-input-container>
