@@ -3,7 +3,7 @@
 
   module.exports = function (app) {
 
-    var testController = app.test.testController;
+    var testController = app.test.TestController;
 
     app.route('/api/v1/avaliacao')
       .post(testController.send);
