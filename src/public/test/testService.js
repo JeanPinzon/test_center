@@ -14,14 +14,7 @@
     var preview = function (test) {
       var deferred= $q.defer();
       $http.post(urlSettingsFactory.getUrlToPreview(), test).then(function(response) {
-
-        var doc = document.getElementById('preview').contentWindow.document;
-        document.getElementById('preview').style.display = "block";
-
-        doc.open();
-        doc.write(response.data.html);
-        doc.close();
-
+        $('#preview').empty().append(response.data.html);        
         deferred.resolve;
       });
       return deferred.promise;

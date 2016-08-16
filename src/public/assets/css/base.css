@@ -1,21 +1,6 @@
 
-
-body {
-	font-size: 14px;
-}
-
-h3 {
-	text-align: center;
-}
-
 .container {
 	padding-top: 15px;
-}
-
-iframe#preview {
-	border: 0px !important;
-	margin-left: -15px!important;
-	width: 100%;
 }
 
 /** ========================== IMPORT FONTS ================================ **/
@@ -23,7 +8,19 @@ iframe#preview {
 	font-family: 'Montserrat';
 	src: url('../fonts/Montserrat-Regular.otf');
 }
+
+@font-face {
+		font-family: ralewayMedium;
+		src: url('https://fonts.googleapis.com/css?family=Raleway');
+}
+
 /** ========================== IMPORT FONTS =END============================ **/
+
+body {
+	font-size: 14px;
+	font-family: 'Raleway', sans-serif;
+}
+
 #pageHeader {
 	background-image: url(http://cwisoftware.github.io/eventos/dist/img/ev-bg.jpg);
 	border-bottom: 3px solid #fa9e23;

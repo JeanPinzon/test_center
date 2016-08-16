@@ -4,13 +4,6 @@
   <title>CWI - Test</title>
   <link rel="stylesheet" type="text/css" href="vendor/angular-material/angular-material.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/base.css">
-  <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
-  <script type="text/javascript">
-    var resizeIframe = function(){
-      var height = $(document.getElementById('preview').contentWindow.document.getElementById('previewContent')).height();
-      $('iframe').css('height', height + 20);
-    };
-  </script>
 </head>
 <body ng-controller="homeController as homeCtrl">
 
@@ -300,7 +293,7 @@
           <md-tab label="Visualizar" ng-disabled="!homeCtrl.canPreview()" md-on-select="homeCtrl.preview()">
             <md-content class="md-padding">
               <div class="container">
-                <iframe id="preview" style="display: none" frameborder="0" allowfullscreen onload="resizeIframe()"></iframe>
+                <div id="preview"></div>
               </div>
             </md-content>
           </md-tab>
@@ -319,6 +312,7 @@
       </form>
     </md-content>
   </div>
+  <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
   <script src="vendor/angular/angular.min.js"></script>
