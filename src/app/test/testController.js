@@ -18,7 +18,7 @@
   ];
 
   var juniors3 = [
-    "https://dl.dropboxusercontent.com/s/5qiudz8dz368phf/EKANS.png?dl=0",
+    "https://dl.dropboxusercontent.com/s/7fqlnyic81nzjuc/GOLBAT.png?dl=0",
     "https://dl.dropboxusercontent.com/s/8ehub66uig6e9jr/POLIWAG.png?dl=0",
     "https://dl.dropboxusercontent.com/s/j3tzcd9jcry02di/SPEAROW.png?dl=0"
   ];
@@ -206,7 +206,8 @@
 
       html = html.replace("[CANDIDATE_NAME]", test.name)
       .replace("[CANDIDATE_LEVEL]", test.level)
-      .replace("[CANDIDATE_LEVEL_IMAGE]", test.image)
+      //.replace("[CANDIDATE_LEVEL_IMAGE]", test.image)
+      .replace("[CANDIDATE_LEVEL_IMAGE]", "https://dl.dropboxusercontent.com/s/7fqlnyic81nzjuc/GOLBAT.png?dl=0")
       .replace("[CANDIDATE_FEEDBACK]", test.feedback)
 
       .replace("[UNIT_TESTS.NOTE]", test.level)
