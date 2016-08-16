@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var homeController = function (testService, $filter, $scope) {
+  var homeController = function (testService, $filter, $scope, $mdDialog) {
 
     var self = this;
 
@@ -64,8 +64,25 @@
     }];
 
     self.sendTest = function () {
-      testService.sendTest(self.test);
+      testService.sendTest(self.test).then(function(response){
+        console.log(response);
+        if(response.data.valid){
+          showFinishDialog();
+        };
+      });
     };
+
+    var showFinishDialog = function(){
+      $mdDialog.show(
+          $mdDialog.alert()
+            .parent(angular.element(document.querySelector('#popupContainer')))
+            .clickOutsideToClose(true)
+            .title('Teste Center')
+            .textContent('Avaliação enviada com sucesso!')
+            .ariaLabel('Alert Dialog Demo')
+            .ok('Fechar')
+      )
+    }
 
     self.getTextValues = function () {
       self.test.result.unitTests.text = $('#unitTestsText').text().replace(/\d*\%?\s?\-\s*/ ,"");
@@ -196,5 +213,5 @@
 
   };
 
-  angular.module('testCenter').controller('homeController', ['testService', '$filter', '$scope', homeController]);
+  angular.module('testCenter').controller('homeController', ['testService', '$filter', '$scope', '$mdDialog' , homeController]);
 })();

@@ -6,7 +6,7 @@
     var sendTest = function (test) {
       var deferred= $q.defer();
       $http.post(urlSettingsFactory.getUrlToSend(), test).then(function(response) {
-        deferred.resolve(resolve);
+        deferred.resolve(response);
       });
       return deferred.promise;
     };
