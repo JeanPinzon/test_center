@@ -18,7 +18,6 @@ iframe#preview {
 	width: 100%;
 }
 
-/**==============**/
 /** ========================== IMPORT FONTS ================================ **/
 @font-face {
 	font-family: 'Montserrat';
@@ -30,9 +29,6 @@ iframe#preview {
 	border-bottom: 3px solid #fa9e23;
 	height: 200px;
 	text-align: center;
-}
-#logo {
-	border: solid 3px pink;
 }
 #appCompany{
 	position: relative;
@@ -58,8 +54,6 @@ md-tabs.md-default-theme .md-tab.md-active, md-tabs .md-tab.md-active, md-tabs.m
 	font-weight: bold;
 	color: #fa9e23;
 }
-
-/**==============**/
 
 md-pagination-wrapper {
     width: 100% !important;
