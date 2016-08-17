@@ -14,7 +14,7 @@
     controller.send = function (req, res) {
       var html = testService.buildResult(req.body);
       emailService.send(html);
-      res.json({ valid: true, html: html });
+      res.json({ valid: true });
     };
 
     controller.preview = function (req, res) {

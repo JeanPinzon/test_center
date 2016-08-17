@@ -65,7 +65,6 @@
 
     self.sendTest = function () {
       testService.sendTest(self.test).then(function(response){
-        console.log(response);
         if(response.data.valid){
           showFinishDialog();
         };
@@ -137,6 +136,7 @@
       self.getLevel();
     };
 
+    // TODO: If is debug mode run this fake test.
     self.configureFakeTest = function () {
       self.test =
       {
