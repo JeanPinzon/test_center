@@ -9,14 +9,15 @@
       var server = email.server.connect({
         user: process.env.DB_EMAIL_USER,
         password: process.env.DB_EMAIL_PASSWORD,
-        host: "smtp.gmail.com",
-        ssl: true
+        host:"smtp-mail.outlook.com",
+        tls:{ciphers: "SSLv3"}
       });
 
       var message = {
         text: "Prova Técnica .NET",
         from: "Sistema de Correções <rafaeldeoliveirabenetti@gmail.com>",
-        to: "someone <rafaelbenetti@cwi.com.br>, another <rafaeldeoliveirabenetti@gmail.com",
+        to: "someone <rafaelbenetti@cwi.com.br>, another <gustavo.borba@cwi.com.br",
+        cc: "gustavo.saudade@cwi.com.br",
         subject: "Prova Técnica .NET",
         attachment:
         [
