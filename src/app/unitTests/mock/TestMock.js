@@ -2,10 +2,10 @@
   'use strict';
 
   var TestMock = function(){
-    this.completeTest = configureFakeTest();
+    this.PlenoCandidate = getPlenoCandidate();
   };
 
-  var configureFakeTest = function () {
+  var configureFakeTest = function (value) {
     var test =
     {
       "name": "Um Dois Três de Oliveira Quatro",
@@ -14,65 +14,65 @@
       "feedback": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis.Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis. Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis.",
       "result": {
         "unitTests": {
-          "note" : 66,
+          "note" : value.unitTestsNote,
           "description": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis."
         }
       },
       "quality": {
         "oo": {
-          "note" : 0,
+          "note" : value.ooNote,
           "description": "Diuretics paradis num copo é motivis de denguis."
         },
         "intelligence": {
-          "note" : 25,
+          "note" : value.intelligenceNote,
           "description": "Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis."
         },
         "exceptionHandling": {
-          "note" : 50,
+          "note" : value.exceptionHandlingNote,
           "description": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis."
         },
         "duplicatedCode": {
-          "note" : 75,
+          "note" : value.duplicatedCodeNote,
           "description": "Cacilds vidis litro abertis. Diuretics paradis."
         },
         "automatedTests": {
-          "note" : 33,
+          "note" : value.automatedTestsNote,
           "description": "Vidis litro abertis. Diuretics paradis num copo é motivis de denguis.."
         }
       },
       "maintainability": {
         "inputFormat": {
-          "note" : 100,
+          "note" : value.maintainabilityNote,
           "description": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis."
         },
         "addOperators": {
-          "note" : 100,
+          "note" : value.addOperatorsNote,
           "description": "Diuretics paradis num copo é motivis de denguis."
         },
         "alterOutput": {
-          "note" : 100,
+          "note" : value.alterOutputNote,
           "description": "Litro abertis. Diuretics paradis num copo é motivis de denguis."
         },
         "leapYear": {
-          "note" : 100,
+          "note" : value.leapYearNote,
           "description": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis."
         },
         "maintainability": {
-          "note" : 66,
+          "note" : value.maintainabilityNote,
           "description": "Diuretics paradis num copo é motivis de denguis."
         }
       },
       "readability": {
         "variables": {
-          "note" : 100,
+          "note" : value.readabilityNote,
           "description": "Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis."
         },
         "methods": {
-          "note" : 100,
+          "note" : value.methodsNote,
           "description": "Diuretics paradis num copo é motivis de denguis. Diuretics paradis num copo é motivis de denguis."
         },
         "comments": {
-          "note" : 100,
+          "note" : value.commentsNote,
           "description": " Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis."
         }
       }
@@ -80,6 +80,13 @@
 
   return test;
 };
+
+var getPlenoCandidate = function(){
+  var plen = {unitTestsNote : 50, ooNote : 50, intelligenceNote : 50, exceptionHandlingNote : 50, duplicatedCodeNote : 50, automatedTestsNote : 50, maintainabilityNote : 50,
+    addOperatorsNote : 50, alterOutputNote : 50, leapYearNote : 50, maintainabilityNote : 50, readabilityNote : 50, methodsNote : 50, commentsNote : 50}
+
+    return configureFakeTest(plen);
+}
 
 module.exports = TestMock;
 

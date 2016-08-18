@@ -5,22 +5,24 @@
   var supertest = require('supertest')(app);
   var should = require('should');
   var TestMock = require('./mock/TestMock.js');
-  var testMock = new TestMock();
 
   describe('# Avaliação de candidato', function() {
-
-    it('# Deve obter o level do usuário', function(done){
-
-      var expectedLevel = "Pleno 1";
-
-      supertest.post('/api/v1/level')
-        .send(testMock.completeTest)
-        .end(function(error, result) {
-          result.status.should.equal(200);
-          result.body.valid.should.equal(true);
-          result.body.level.should.be.exactly(expectedLevel);
-          done();
-       });
+    var testMock = new TestMock();
+    it('# Deve obter o level do usuário Pleno 1', function(done){
+      var plenoMock = testMock.PlenoCandidate;
+      var expectedResult = {status : 200, valid : true, level : "Pleno 1"};
+      getUserLevelTest(plenoMock, expectedResult, done);
     });
   });
+
+  function getUserLevelTest(userInformation, expectedResult, done){
+    supertest.post('/api/v1/level')
+      .send(userInformation)
+      .end(function(error, result) {
+        result.status.should.equal(expectedResult.status);
+        result.body.valid.should.equal(expectedResult.valid);
+        result.body.level.should.be.exactly(expectedResult.level);
+        done();
+     });
+  }
 })();
