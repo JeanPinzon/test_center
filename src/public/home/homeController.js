@@ -84,7 +84,7 @@
     }
 
     self.getTextValues = function () {
-      self.test.result.unitTests.text = $('#unitTestsText').text().replace(/\d*\%?\s?\-\s*/ ,"");
+      self.test.quality.unitTests.text = $('#unitTestsText').text().replace(/\d*\%?\s?\-\s*/ ,"");
       self.test.quality.oo.text = $('#qualityText').text().replace(/\d*\%?\s?\-\s*/ ,"");
       self.test.quality.intelligence.text = $('#intelligenceText').text().replace(/\d*\%?\s?\-\s*/ ,"");
       self.test.quality.exceptionHandling.text = $("#exceptionHandlingText").text().replace(/\d*\%?\s?\-\s*/ ,"");
@@ -144,12 +144,6 @@
         "level": 4,
         "complete": false,
         "feedback": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis.Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis. Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis.",
-        "result": {
-          "unitTests": {
-            "note" : 66,
-            "description": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis."
-          }
-        },
         "quality": {
           "oo": {
             "note" : 0,
@@ -166,6 +160,10 @@
           "duplicatedCode": {
             "note" : 75,
             "description": "Cacilds vidis litro abertis. Diuretics paradis."
+          },
+          "unitTests": {
+            "note" : 66,
+            "description": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis."
           },
           "automatedTests": {
             "note" : 33,

@@ -23,25 +23,24 @@
     };
 
     var setImages = function(test) {
-      test.result.unitTests = setImageByNote(test.result.unitTests);
-      test.result.oo = setImageByNote(test.quality.oo);
-      test.result.intelligence = setImageByNote(test.quality.intelligence);
-      test.result.exceptionHandling = setImageByNote(test.quality.exceptionHandling);
-      test.result.duplicatedCode = setImageByNote(test.quality.duplicatedCode);
-      test.result.automatedTests = setImageByNote(test.quality.automatedTests);
-      test.result.inputFormat = setImageByNote(test.maintainability.inputFormat);
-      test.result.addOperators = setImageByNote(test.maintainability.addOperators);
-      test.result.alterOutput = setImageByNote(test.maintainability.alterOutput);
-      test.result.leapYear = setImageByNote(test.maintainability.leapYear);
-      test.result.maintainability = setImageByNote(test.maintainability.maintainability);
-      test.result.variables = setImageByNote(test.readability.variables);
-      test.result.methods = setImageByNote(test.readability.methods);
-      test.result.comments = setImageByNote(test.readability.comments);
+      test.quality.unitTests = setImageByNote(test.quality.unitTests);
+      test.quality.oo = setImageByNote(test.quality.oo);
+      test.quality.intelligence = setImageByNote(test.quality.intelligence);
+      test.quality.exceptionHandling = setImageByNote(test.quality.exceptionHandling);
+      test.quality.duplicatedCode = setImageByNote(test.quality.duplicatedCode);
+      test.quality.automatedTests = setImageByNote(test.quality.automatedTests);
+      test.maintainability.inputFormat = setImageByNote(test.maintainability.inputFormat);
+      test.maintainability.addOperators = setImageByNote(test.maintainability.addOperators);
+      test.maintainability.alterOutput = setImageByNote(test.maintainability.alterOutput);
+      test.maintainability.leapYear = setImageByNote(test.maintainability.leapYear);
+      test.maintainability.maintainability = setImageByNote(test.maintainability.maintainability);
+      test.readability.variables = setImageByNote(test.readability.variables);
+      test.readability.methods = setImageByNote(test.readability.methods);
+      test.readability.comments = setImageByNote(test.readability.comments);
       return test;
     };
 
     this.validate = function(test) {
-
       test.score = calculateScore(test);
 
       if (test.levelManuallyChanged) {
@@ -92,11 +91,11 @@
     var calculateScore = function(test){
 
       var score =
-      getValueByOption(1, test.result.unitTests.note)
-      + getValueByOption(2, test.quality.oo.note)
+      getValueByOption(2, test.quality.oo.note)
       + getValueByOption(2, test.quality.intelligence.note)
       + getValueByOption(0.5, test.quality.exceptionHandling.note)
       + getValueByOption(0.5, test.quality.duplicatedCode.note)
+      + getValueByOption(1, test.quality.unitTests.note)
       + getValueByOption(1, test.quality.automatedTests.note)
       + getValueByOption(0.20, test.maintainability.inputFormat.note)
       + getValueByOption(0.20, test.maintainability.addOperators.note)
@@ -123,8 +122,8 @@
       .replace("[CANDIDATE_LEVEL_IMAGE]", test.image)
       .replace("[CANDIDATE_FEEDBACK]", test.feedback)
 
-      .replace("[UNIT_TESTS.NOTE]", test.level)
-      .replace("[UNIT_TESTS.DESCRIPTION]", test.level)
+      //.replace("[UNIT_TESTS.NOTE]", test.quality.level)
+      //.replace("[UNIT_TESTS.DESCRIPTION]", test.quality.level)
 
       .replace("[OO.NOTE]", test.quality.oo.text)
       .replace("[OO.DESCRIPTION]", test.quality.oo.description)
@@ -134,6 +133,8 @@
       .replace("[EXCEPTION_HANDLIND.DESCRIPTION]", test.quality.exceptionHandling.description)
       .replace("[DUPLICATED_CODE.NOTE]", test.quality.duplicatedCode.text)
       .replace("[DUPLICATED_CODE.DESCRIPTION]", test.quality.duplicatedCode.description)
+      .replace("[UNIT_TESTS.NOTE]", test.quality.unitTests.text)
+      .replace("[UNIT_TESTS.DESCRIPTION]", test.quality.unitTests.description)
       .replace("[AUTOMATED_TESTS.NOTE]", test.quality.automatedTests.text)
       .replace("[AUTOMATED_TESTS.DESCRIPTION]", test.quality.automatedTests.description)
 
@@ -159,6 +160,7 @@
       .replace("[INTELLIGENCE.STATUS]", test.quality.intelligence.image)
       .replace("[EXCEPTION_HANDLIND.STATUS]", test.quality.exceptionHandling.image)
       .replace("[DUPLICATED_CODE.STATUS]", test.quality.duplicatedCode.image)
+      .replace("[UNIT_TESTS.STATUS]", test.quality.unitTests.image)
       .replace("[AUTOMATED_TESTS.STATUS]", test.quality.automatedTests.image)
       .replace("[INPUT_FORMAT.STATUS]", test.maintainability.inputFormat.image)
       .replace("[ADD_OPERATORS.STATUS]", test.maintainability.addOperators.image)

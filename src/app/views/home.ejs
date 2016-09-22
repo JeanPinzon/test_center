@@ -29,22 +29,6 @@
                   <input ng-model="homeCtrl.test.name" md-maxlength="100" required>
                 </md-input-container>
               </div>
-
-              <div layout-gt-sm="row">
-                <md-input-container class="md-block" flex-gt-sm="">
-                  <label>Resultado dos testes</label>
-                  <md-select id="unitTestsText" ng-model="homeCtrl.test.result.unitTests.note" required>
-                    <md-option ng-repeat="option in homeCtrl.automatedTestsOptions" value="{{option.value}}">
-                      <span value="{{option.text}}">{{option.text}}</span>
-                    </md-option>
-                  </md-select>
-                </md-input-container>
-
-                <md-input-container class="md-block" flex-gt-sm="">
-                  <label>Descrição</label>
-                  <textarea id="labelTest"  ng-model="homeCtrl.test.result.unitTests.description" md-maxlength="100" rows="3" required></textarea>
-                </md-input-container>
-              </div>
             </md-content>
           </md-tab>
 
@@ -111,6 +95,22 @@
                 <md-input-container class="md-block" flex-gt-sm="">
                   <label>Descrição</label>
                   <textarea ng-model="homeCtrl.test.quality.duplicatedCode.description" md-maxlength="100" rows="3" required></textarea>
+                </md-input-container>
+              </div>
+
+              <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm="">
+                  <label>Testes Unitários</label>
+                  <md-select  ng-model="homeCtrl.test.quality.unitTests.note" required>
+                    <md-option ng-repeat="option in homeCtrl.automatedTestsOptions" value="{{option.value}}">
+                      <span id="unitTestsText" value="{{option.text}}">{{option.text}}</span>
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm="">
+                  <label>Descrição</label>
+                  <textarea id="labelTest"  ng-model="homeCtrl.test.quality.unitTests.description" md-maxlength="100" rows="3" required></textarea>
                 </md-input-container>
               </div>
 
