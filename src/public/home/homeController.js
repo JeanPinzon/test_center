@@ -67,6 +67,8 @@
       testService.sendTest(self.test).then(function(response){
         if(response.data.valid){
           showFinishDialog();
+          $scope.selectedIndex = 0;
+          self.test = {};
         };
       });
     };
