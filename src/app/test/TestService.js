@@ -2,41 +2,25 @@
   'use strict';
 
   var ImageService = require('./ImageService');
+  var ScoreService = require('./ScoreService');
   var imageService = new ImageService();
 
   var TestService = function(){
-
-    var setImageByNote = function(item){
-      if (item.note < 25) {
-        item.image = imageService.IMAGE_PATH_RED;
-      }
-      else if (item.note === 66) {
-        item.image = imageService.IMAGE_PATH_GREEN;
-      }
-      else if (item.note >= 25 && item.note < 75) {
-        item.image = imageService.IMAGE_PATH_YELLOW;
-      }
-      else {
-        item.image = imageService.IMAGE_PATH_GREEN;
-      }
-      return item;
-    };
-
     var setImages = function(test) {
-      test.result.unitTests = setImageByNote(test.result.unitTests);
-      test.result.oo = setImageByNote(test.quality.oo);
-      test.result.intelligence = setImageByNote(test.quality.intelligence);
-      test.result.exceptionHandling = setImageByNote(test.quality.exceptionHandling);
-      test.result.duplicatedCode = setImageByNote(test.quality.duplicatedCode);
-      test.result.automatedTests = setImageByNote(test.quality.automatedTests);
-      test.result.inputFormat = setImageByNote(test.maintainability.inputFormat);
-      test.result.addOperators = setImageByNote(test.maintainability.addOperators);
-      test.result.alterOutput = setImageByNote(test.maintainability.alterOutput);
-      test.result.leapYear = setImageByNote(test.maintainability.leapYear);
-      test.result.maintainability = setImageByNote(test.maintainability.maintainability);
-      test.result.variables = setImageByNote(test.readability.variables);
-      test.result.methods = setImageByNote(test.readability.methods);
-      test.result.comments = setImageByNote(test.readability.comments);
+      test.result.unitTests = imageService.setImageByNote(test.result.unitTests);
+      test.result.oo = imageService.setImageByNote(test.quality.oo);
+      test.result.intelligence = imageService.setImageByNote(test.quality.intelligence);
+      test.result.exceptionHandling = imageService.setImageByNote(test.quality.exceptionHandling);
+      test.result.duplicatedCode = imageService.setImageByNote(test.quality.duplicatedCode);
+      test.result.automatedTests = imageService.setImageByNote(test.quality.automatedTests);
+      test.result.inputFormat = imageService.setImageByNote(test.maintainability.inputFormat);
+      test.result.addOperators = imageService.setImageByNote(test.maintainability.addOperators);
+      test.result.alterOutput = imageService.setImageByNote(test.maintainability.alterOutput);
+      test.result.leapYear = imageService.setImageByNote(test.maintainability.leapYear);
+      test.result.maintainability = imageService.setImageByNote(test.maintainability.maintainability);
+      test.result.variables = imageService.setImageByNote(test.readability.variables);
+      test.result.methods = imageService.setImageByNote(test.readability.methods);
+      test.result.comments = imageService.setImageByNote(test.readability.comments);
       return test;
     };
 
@@ -48,34 +32,10 @@
         test.score = test.level;
       }
 
-      if (test.score < 2) {
-        test.level = "Júnior 1";
-        test.image = getRandomImageFromArray(imageService.juniors);
-      }
-      else if (test.score >= 2 && test.score < 3) {
-        test.level = "Júnior 2";
-        test.image = getRandomImageFromArray(imageService.juniors2);
-      }
-      else if (test.score >= 3 && test.score < 4) {
-        test.level = "Júnior 3";
-        test.image = getRandomImageFromArray(imageService.juniors3);
-      }
-      else if (test.score >= 4 && test.score < 5) {
-        test.level = "Pleno 1";
-        test.image = getRandomImageFromArray(imageService.plenos);
-      }
-      else if (test.score >= 5 && test.score < 6) {
-        test.level = "Pleno 2";
-        test.image = getRandomImageFromArray(imageService.plenos2);
-      }
-      else if (test.score >= 6 && test.score < 7) {
-        test.level = "Pleno 3";
-        test.image = getRandomImageFromArray(imageService.plenos3);
-      }
-      else if (test.score >= 7) {
-        test.level = "Sênior";
-        test.image = getRandomImageFromArray(imageService.seniors);
-      }
+      var score = new ScoreService(test.score);
+      var result = score.result();
+      test.level = result.name;
+      test.image = result.image;
 
       return test;
     };

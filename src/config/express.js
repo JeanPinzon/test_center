@@ -23,6 +23,12 @@
     app.use(methodOverride());
     app.use(helmet());
 
+    app.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+    });
+
     load('test', { cwd: './app' })
       .then('routes')
       .into(app);
