@@ -18,12 +18,6 @@
       "level": 4,
       "complete": false,
       "feedback": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis.Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis. Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis.",
-      "result": {
-        "unitTests": {
-          "note" : value.unitTestsNote,
-          "description": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis."
-        }
-      },
       "quality": {
         "oo": {
           "note" : value.ooNote,
@@ -40,6 +34,10 @@
         "duplicatedCode": {
           "note" : value.duplicatedCodeNote,
           "description": "Cacilds vidis litro abertis. Diuretics paradis."
+        },
+        "unitTests": {
+          "note" : value.unitTestsNote,
+          "description": "Mussum Ipsum, cacilds vidis litro abertis. Diuretics paradis num copo é motivis de denguis."
         },
         "automatedTests": {
           "note" : value.automatedTestsNote,
