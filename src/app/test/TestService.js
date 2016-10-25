@@ -7,20 +7,20 @@
 
   var TestService = function(){
     var setImages = function(test) {
-      test.result.unitTests = imageService.setImageByNote(test.result.unitTests);
-      test.result.oo = imageService.setImageByNote(test.quality.oo);
-      test.result.intelligence = imageService.setImageByNote(test.quality.intelligence);
-      test.result.exceptionHandling = imageService.setImageByNote(test.quality.exceptionHandling);
-      test.result.duplicatedCode = imageService.setImageByNote(test.quality.duplicatedCode);
-      test.result.automatedTests = imageService.setImageByNote(test.quality.automatedTests);
-      test.result.inputFormat = imageService.setImageByNote(test.maintainability.inputFormat);
-      test.result.addOperators = imageService.setImageByNote(test.maintainability.addOperators);
-      test.result.alterOutput = imageService.setImageByNote(test.maintainability.alterOutput);
-      test.result.leapYear = imageService.setImageByNote(test.maintainability.leapYear);
-      test.result.maintainability = imageService.setImageByNote(test.maintainability.maintainability);
-      test.result.variables = imageService.setImageByNote(test.readability.variables);
-      test.result.methods = imageService.setImageByNote(test.readability.methods);
-      test.result.comments = imageService.setImageByNote(test.readability.comments);
+      test.quality.unitTests = imageService.setImageByNote(test.quality.unitTests); 
+      test.quality.oo = imageService.setImageByNote(test.quality.oo); 
+      test.quality.intelligence = imageService.setImageByNote(test.quality.intelligence); 
+      test.quality.exceptionHandling = imageService.setImageByNote(test.quality.exceptionHandling); 
+      test.quality.duplicatedCode = imageService.setImageByNote(test.quality.duplicatedCode); 
+      test.quality.automatedTests = imageService.setImageByNote(test.quality.automatedTests); 
+      test.maintainability.inputFormat = imageService.setImageByNote(test.maintainability.inputFormat); 
+      test.maintainability.addOperators = imageService.setImageByNote(test.maintainability.addOperators); 
+      test.maintainability.alterOutput = imageService.setImageByNote(test.maintainability.alterOutput); 
+      test.maintainability.leapYear = imageService.setImageByNote(test.maintainability.leapYear); 
+      test.maintainability.maintainability = imageService.setImageByNote(test.maintainability.maintainability); 
+      test.readability.variables = imageService.setImageByNote(test.readability.variables); 
+      test.readability.methods = imageService.setImageByNote(test.readability.methods); 
+      test.readability.comments = imageService.setImageByNote(test.readability.comments); 
       return test;
     };
 
@@ -81,9 +81,6 @@
       .replace("[CANDIDATE_LEVEL]", test.level)
       .replace("[CANDIDATE_LEVEL_IMAGE]", test.image)
       .replace("[CANDIDATE_FEEDBACK]", test.feedback)
-
-      //.replace("[UNIT_TESTS.NOTE]", test.quality.level)
-      //.replace("[UNIT_TESTS.DESCRIPTION]", test.quality.level)
 
       .replace("[OO.NOTE]", test.quality.oo.text)
       .replace("[OO.DESCRIPTION]", test.quality.oo.description)
