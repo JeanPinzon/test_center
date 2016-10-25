@@ -49,7 +49,7 @@
   var ScoreService = function (scoreNumber) {
     this.result = function () {
       var selected = intervals.firstOrDefault(function(element) {
-        return scoreNumber > element.minValue && scoreNumber <= element.maxValue;
+        return scoreNumber >= element.minValue && scoreNumber < element.maxValue;
       });   
 
       return selected;
