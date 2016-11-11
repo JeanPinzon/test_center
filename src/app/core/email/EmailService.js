@@ -6,8 +6,8 @@
   var EmailService = function(){
     this.send = function(content) {
 
-      var emailTo = "rafaelbenetti@cwi.com.br, gustavo.borba@cwi.com.br";
-      var emailCopy = "gustavo.saudade@cwi.com.br";
+      var emailTo = process.env.DB_EMAIL_TO;
+      var emailCopy = process.env.DB_EMAIL_COPY;
 
       var server = email.server.connect({
         user: process.env.DB_EMAIL_USER, 
