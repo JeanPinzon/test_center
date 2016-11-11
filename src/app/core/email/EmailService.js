@@ -10,7 +10,7 @@
       var emailCopy = "gustavo.saudade@cwi.com.br";
 
       var server = email.server.connect({
-        user: process.env.DB_EMAIL_USER,
+        user: process.env.DB_EMAIL_USER, 
         password: process.env.DB_EMAIL_PASSWORD,
         host:"smtp-mail.outlook.com",
         tls:{ciphers: "SSLv3"}
